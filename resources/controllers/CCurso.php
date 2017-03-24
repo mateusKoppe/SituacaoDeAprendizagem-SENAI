@@ -1,9 +1,11 @@
 <?php
 
-class CursoController extends Controller{
+require 'Controller.php';
+
+class CCurso extends Controller{
     
     public function AIndex(){
-        $this->render("VCursoIndex");
+        $this->renderInStructure("VCursoIndex");
     }
     
 }

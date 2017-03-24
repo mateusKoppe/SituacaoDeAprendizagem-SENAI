@@ -13,10 +13,18 @@ class Controller {
         $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
-    protected function render($view){
-        if(!include_if_file_exists("views/$view.php")){
-            throw new ErrorException("Indefineded view");
+    protected function renderInStructure($view, $data = [], $structure = ""){
+        switch ($structure) {
+            default:
+                $this->render('structure/header');
+                $this->render($view);
+                $this->render('structure/footer');
+                break;
         }
+    }
+
+    protected function render($view, $data = []){
+        require(APLICATION_DIR . "/views/$view.php");
     }
     
     protected function redirect($url){
