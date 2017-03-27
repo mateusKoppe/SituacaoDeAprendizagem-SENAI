@@ -1,0 +1,48 @@
+@function column-name($name, $breakpoint, $column){
+	@if map-get($grid-breakpoints, $breakpoint) == none {
+		@return $name + '-' + $column;
+	}
+	@return $name + '-' + $breakpoint + '-' + $column;
+}
+
+.container{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $grid-gutter;
+	padding-right: $grid-gutter;
+}
+
+.row{
+	margin-left: $grid-gutter * -1;
+	margin-right: $grid-gutter * -1;
+	display: flex;
+}
+
+.col {
+	flex: 1;
+}
+
+.vertical-top {
+	align-item: top;
+}
+
+@each $breakpoint, $container-size in $grid-containers {	
+	@include breakpoint($breakpoint){
+		.container{
+			max-width: $container-size;
+		}
+
+		@for $column from 1 through $grid-columns {
+			#{column-name('.col', $breakpoint, $column)} {
+				flex-basis: percentage($column / $grid-columns);
+				padding-left: $grid-gutter;
+				padding-right: $grid-gutter;
+			}
+			#{column-name('.order', $breakpoint, $column)} {
+				order: $column;
+			}
+		}
+	}
+}
+

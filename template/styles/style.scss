@@ -1,0 +1,12 @@
+@import 'reset';
+
+@import 'variables';
+@import 'functions';
+@import 'grid';
+
+body{
+	background-color: $color-main;
+	@include breakpoint(sm){
+		background-color: red;
+	}
+}

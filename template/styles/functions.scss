@@ -1,0 +1,9 @@
+@mixin breakpoint($size-screen){
+	@if map-get($grid-breakpoints, $size-screen) != none{
+		@media (max-width: map-get($grid-breakpoints, $size-screen)){
+			@content
+		}
+	}  @else{
+		@content
+	}
+}
