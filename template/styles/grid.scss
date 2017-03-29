@@ -1,8 +1,8 @@
-@function column-name($name, $breakpoint, $column){
+@function _breakpoint-rule($name, $breakpoint, $value){
 	@if map-get($grid-breakpoints, $breakpoint) == none {
-		@return $name + '-' + $column;
+		@return $name + '-' + $value;
 	}
-	@return $name + '-' + $breakpoint + '-' + $column;
+	@return $name + '-' + $breakpoint + '-' + $value;
 }
 
 .container{
@@ -23,26 +23,103 @@
 	flex: 1;
 }
 
-.vertical-top {
-	align-item: top;
-}
-
 @each $breakpoint, $container-size in $grid-containers {	
 	@include breakpoint($breakpoint){
+		
 		.container{
 			max-width: $container-size;
 		}
 
+		/* Columns */
 		@for $column from 1 through $grid-columns {
-			#{column-name('.col', $breakpoint, $column)} {
+			#{_breakpoint-rule('.col', $breakpoint, $column)} {
 				flex-basis: percentage($column / $grid-columns);
+				max-width: percentage($column / $grid-columns);
 				padding-left: $grid-gutter;
 				padding-right: $grid-gutter;
 			}
-			#{column-name('.order', $breakpoint, $column)} {
+			
+			#{_breakpoint-rule('.order', $breakpoint, $column)} {
 				order: $column;
 			}
 		}
+	
+		/* Breakpoint */
+		#{_breakpoint-rule('.col',$breakpoint, '-v-top')} {
+			align-self: flex-start;	
+		}
+
+		#{_breakpoint-rule('.col',$breakpoint, '-v-center')} {
+			align-self: center;	
+		}
+
+		#{_breakpoint-rule('.col',$breakpoint, '-v-bottom')} {
+			align-self: flex-bottom;	
+		}
+
+		#{_breakpoint-rule('.container', $breakpoint, '-full-height')} {
+			height: 100%;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-full-height')} {
+			height: 100%;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-v-top')} {
+			align-items: flex-start;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-v-center')} {
+			align-items: center;
+		}
+		
+		#{_breakpoint-rule('.row', $breakpoint, '-v-end')} {
+			align-items: flex-start;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-v-full')} {
+			align-items: stretch;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-v-line')} {
+			align-items: baseline;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-h-start')} {
+			justify-content: flex-start;
+		}
+		
+		#{_breakpoint-rule('.row', $breakpoint, '-h-center')} {
+			justify-content: center;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-h-end')} {
+			justify-content: flex-end;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-h-distance')} {
+			justify-content: space-between;
+		}
+		
+		#{_breakpoint-rule('.row', $breakpoint, '-h-around')} {
+			justify-content: space-around;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-row-start')} {
+			flex-direction: row;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-row-reverse')} {
+			flex-direction: row-reverse;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-column-start')} {
+			flex-direction: column;
+		}
+
+		#{_breakpoint-rule('.row', $breakpoint, '-column-reverse')} {
+			flex-direction: column-reverse;
+		}
+
 	}
 }
-

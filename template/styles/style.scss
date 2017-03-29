@@ -2,11 +2,8 @@
 
 @import 'variables';
 @import 'functions';
-@import 'grid';
 
-body{
-	background-color: $color-main;
-	@include breakpoint(sm){
-		background-color: red;
-	}
-}
+@import 'core/core';
+@import 'helpers/grid';
+@import 'helpers/responsive-helpers'
+@import 'structure/structure';
