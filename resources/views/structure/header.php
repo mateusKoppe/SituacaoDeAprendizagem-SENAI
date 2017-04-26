@@ -31,13 +31,41 @@
 				</ul>
 			</div>
 		</nav>
+
 		<div class="main-header-content">
 			<div class="container container--full-height">
 				<div class="row row--full-height">
 					<div class="col-5 col--v-center">
-						<img src="./template/media/logo-with-description.png">
+						<img class="img-responsive img-responsive--reduce-only" src="./template/media/logo-with-description.png">
 					</div>
 				</div>
+			</div>
+		</div>
+
+		<div class="main-nav-content">
+			<div class="main-nav-content__container container container--no-gutter container--full-height">
+				<nav class="row row--no-gutter row--full-height">
+					<ul class="col main-nav-content__list">
+						<li class="main-nav-content__item">
+							<a class="main-nav-content__link">Ambientes</a>
+						</li>
+						<li class="main-nav-content__item">
+							<a class="main-nav-content__link">Institucional</a>
+						</li>
+						<li class="main-nav-content__item">
+							<a class="main-nav-content__link">Cursos</a>
+						</li>
+						<li class="main-nav-content__item">
+							<a class="main-nav-content__link">Ensino Médio</a>
+						</li>
+						<li class="main-nav-content__item">
+							<a class="main-nav-content__link">Notocías</a>
+						</li>
+						<li class="main-nav-content__item">
+							<a class="main-nav-content__link">Contato</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</header>

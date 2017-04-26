@@ -45,3 +45,41 @@
 .main-header-content{
 	height: 125px;
 }
+
+.main-nav-content{
+	
+}
+
+	.main-nav-content__container{
+		border-top: 1px solid white;
+	}
+
+	.main-nav-content__list{
+		margin: 0;
+		display: flex;
+	}
+
+	.main-nav-content__item{
+		list-style: none;
+		flex: 1;
+		flex-grow: 1;
+		text-align: center;
+		transition: .3s all ease;
+		cursor: pointer;
+
+		&:hover{
+			background-color: rgba(255, 255, 255, .2);
+		}
+	}
+
+	.main-nav-content__link{
+		text-transform: uppercase;
+		font-weight: 600;
+		color: white;
+		height: 50px;
+		line-height: 50px;
+		display: inline-block;
+		font-family: $featured-font;
+		font-size: 25px;
+		letter-spacing: 1.5px;
+	}

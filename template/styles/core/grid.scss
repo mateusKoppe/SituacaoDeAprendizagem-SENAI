@@ -13,14 +13,31 @@
 	padding-right: $grid-gutter;
 }
 
+.container--no-gutter{
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .row{
 	margin-left: $grid-gutter * -1;
 	margin-right: $grid-gutter * -1;
 	display: flex;
+	flex-wrap: wrap;
+}
+
+.row--no-gutter{
+	margin-left: 0;
+	margin-right: 0;
+	.col{
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 .col {
 	flex: 1;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 @each $breakpoint, $container-size in $grid-containers {	
