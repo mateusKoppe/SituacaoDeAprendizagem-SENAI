@@ -66,9 +66,14 @@
 		text-align: center;
 		transition: .3s all ease;
 		cursor: pointer;
+		position: relative;		
 
 		&:hover{
 			background-color: rgba(255, 255, 255, .2);
+
+			.main-nav-content__submenu{
+				display: block;
+			}
 		}
 	}
 
@@ -82,4 +87,23 @@
 		font-family: $featured-font;
 		font-size: 25px;
 		letter-spacing: 1.5px;
+
+		@include breakpoint(md){
+			font-size: 18px;
+		}
+	}
+
+	.main-nav-content__submenu{
+		position: absolute;
+		transition: .3s all ease;
+		display: none;
+		padding: 0;
+		width: 270px;
+		text-align: left;
+		top: 50px;
+		background-color: $color-main-light;
+
+		@include breakpoint(md){
+			width: 225px;
+		}
 	}

@@ -54,12 +54,18 @@
 						</li>
 						<li class="main-nav-content__item">
 							<a class="main-nav-content__link">Cursos</a>
+							<ul class="main-nav-content__submenu">
+								<li class="main-nav-content__item"><a class="main-nav-content__link">Aprendizagem industrial</a></li>
+								<li class="main-nav-content__item"><a class="main-nav-content__link">Cursos técnicos</a></li>
+								<li class="main-nav-content__item"><a class="main-nav-content__link">Cursos rápidos</a></li>
+								<li class="main-nav-content__item"><a class="main-nav-content__link">Faculdades</a></li>
+							</ul>
 						</li>
 						<li class="main-nav-content__item">
 							<a class="main-nav-content__link">Ensino Médio</a>
 						</li>
 						<li class="main-nav-content__item">
-							<a class="main-nav-content__link">Notocías</a>
+							<a class="main-nav-content__link">Noticías</a>
 						</li>
 						<li class="main-nav-content__item">
 							<a class="main-nav-content__link">Contato</a>

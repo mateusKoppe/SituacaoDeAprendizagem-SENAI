@@ -1349,9 +1349,12 @@ template {
   flex-grow: 1;
   text-align: center;
   transition: .3s all ease;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative; }
   .main-nav-content__item:hover {
     background-color: rgba(255, 255, 255, 0.2); }
+    .main-nav-content__item:hover .main-nav-content__submenu {
+      display: block; }
 
 .main-nav-content__link {
   text-transform: uppercase;
@@ -1363,5 +1366,21 @@ template {
   font-family: "Bebas Neue";
   font-size: 25px;
   letter-spacing: 1.5px; }
+  @media (max-width: 992px) {
+    .main-nav-content__link {
+      font-size: 18px; } }
+
+.main-nav-content__submenu {
+  position: absolute;
+  transition: .3s all ease;
+  display: none;
+  padding: 0;
+  width: 270px;
+  text-align: left;
+  top: 50px;
+  background-color: #1f9559; }
+  @media (max-width: 992px) {
+    .main-nav-content__submenu {
+      width: 225px; } }
 
 /*# sourceMappingURL=style.css.map */
