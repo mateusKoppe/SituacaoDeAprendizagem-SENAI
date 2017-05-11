@@ -1,10 +1,10 @@
 <main>
 	<div class="banner-slider banner-slider--js">
 		<div class="banner-top-slider banner-slider__wrapper">
-			<div class="banner-slider__slide"><img src="./template/media/banner1.jpg" width="100%"></div>
-			<div class="banner-slider__slide"><img src="./template/media/banner2.jpg" width="100%"></div>
-			<div class="banner-slider__slide"><img src="./template/media/banner3.jpg" width="100%"></div>
-			<div class="banner-slider__slide"><img src="./template/media/banner4.jpg" width="100%"></div>
+			<div class="banner-slider__slide"><img src="./template/media/banner1.jpg"></div>
+			<div class="banner-slider__slide"><img src="./template/media/banner2.jpg"></div>
+			<div class="banner-slider__slide"><img src="./template/media/banner3.jpg"></div>
+			<div class="banner-slider__slide"><img src="./template/media/banner4.jpg"></div>
 		</div>
 	</div>
 	<div class="container">

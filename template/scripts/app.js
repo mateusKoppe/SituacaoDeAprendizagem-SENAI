@@ -1,7 +1,3 @@
 onload = () => {
-	let banners = document.querySelectorAll('.banner-slider--js');
-
-	banners.forEach(banner => {
-		new BannerSlider(banner);
-	});
+	document.querySelectorAll('.banner-slider--js').forEach(banner => new BannerSlider(banner));
 }

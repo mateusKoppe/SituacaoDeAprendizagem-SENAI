@@ -11,7 +11,11 @@
 		z-index: 0;
 		top: 0;
 		opacity: 0;
-		transition: .3s all ease;
+		transition: 1s all ease;
+
+		img{
+			width: 100%;
+		}
 	}
 
 	.banner-slider__slide--active{
