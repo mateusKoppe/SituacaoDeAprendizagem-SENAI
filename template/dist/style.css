@@ -406,6 +406,9 @@ template {
 [hidden] {
   display: none; }
 
+.banner-top-slider {
+  padding-top: calc(100% * 0.3697); }
+
 @font-face {
   font-family: 'Bebas Neue';
   src: url(../fonts/bebas-neue.eot);
@@ -1378,9 +1381,24 @@ template {
   width: 270px;
   text-align: left;
   top: 50px;
-  background-color: #1f9559; }
+  background-color: #1f9559;
+  z-index: 2; }
   @media (max-width: 992px) {
     .main-nav-content__submenu {
       width: 225px; } }
+
+.banner-slider__wrapper {
+  position: relative;
+  z-index: 0; }
+
+.banner-slider__slide {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  opacity: 0;
+  transition: .3s all ease; }
+
+.banner-slider__slide--active {
+  opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */

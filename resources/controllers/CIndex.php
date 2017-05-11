@@ -6,7 +6,7 @@ class CIndex extends Controller{
     public function AIndex(){
                 
         $this->whenGet(function(){
-            $this->renderInStructure("VCursoIndex");
+            $this->renderInStructure("VHome");
         });
         
         $this->whenPost(function(){
