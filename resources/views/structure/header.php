@@ -47,10 +47,10 @@
 				<nav class="row row--no-gutter row--full-height">
 					<ul class="col main-nav-content__list">
 						<li class="main-nav-content__item">
-							<a class="main-nav-content__link">Ambientes</a>
+							<a class="main-nav-content__link" href="ambientes">Ambientes</a>
 						</li>
 						<li class="main-nav-content__item">
-							<a class="main-nav-content__link">Institucional</a>
+							<a class="main-nav-content__link" href="institucional">Institucional</a>
 						</li>
 						<li class="main-nav-content__item">
 							<a class="main-nav-content__link">Cursos</a>
@@ -65,10 +65,10 @@
 							<a class="main-nav-content__link">Ensino Médio</a>
 						</li>
 						<li class="main-nav-content__item">
-							<a class="main-nav-content__link">Noticías</a>
+							<a class="main-nav-content__link" href="noticias">Noticías</a>
 						</li>
 						<li class="main-nav-content__item">
-							<a class="main-nav-content__link">Contato</a>
+							<a class="main-nav-content__link" href="contato">Contato</a>
 						</li>
 					</ul>
 				</nav>

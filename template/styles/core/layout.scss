@@ -1,0 +1,21 @@
+h1.main-title{
+	color: $color-main;
+	font-family: $featured-font;
+	font-size: 42px;
+	margin-top: 1.25em;
+}
+
+h2.main-title{
+	color: $color-main;
+	font-family: $featured-font;
+	font-size: 28px;
+	margin-top: 1.25em;	
+}
+
+.main-title small{
+	display: block;
+	font-weight: 400;
+	font-family: $normal-font;
+	font-size: .45em;
+	color: #333;
+}

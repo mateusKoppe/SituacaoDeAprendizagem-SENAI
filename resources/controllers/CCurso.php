@@ -3,9 +3,9 @@
 require 'Controller.php';
 
 class CCurso extends Controller{
-    
-    public function AIndex(){
-        $this->renderInStructure("VCursoIndex");
-    }
-    
+		
+	public function AIndex(){
+		$this->renderInStructure("VCursoIndex");
+	}
+		
 }

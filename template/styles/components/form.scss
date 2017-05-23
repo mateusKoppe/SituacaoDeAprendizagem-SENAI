@@ -1,0 +1,31 @@
+.form{
+
+}
+
+.form__section{
+	margin-bottom: 20px;
+}
+
+.input{
+	border: #999 solid 2px;
+	outline: none;
+	line-height: 40px;
+	width: 100%;
+	padding: 0 15px;
+	transition: .3s all ease;
+
+	&:hover{
+		@extend .shadow-dp-1;
+	}
+
+	&:focus{
+		border-color: $color-main;
+		@extend .shadow-dp-2;
+	}
+
+}
+
+textarea.input{
+	padding: 10px 15px;
+	line-height: 1.3;
+}

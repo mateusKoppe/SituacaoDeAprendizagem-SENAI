@@ -138,5 +138,21 @@
 			flex-direction: column-reverse;
 		}
 
+		#{_breakpoint-rule('.text', $breakpoint, '-right')} {
+			text-align: right;
+		}
+
+		#{_breakpoint-rule('.text', $breakpoint, '-center')} {
+			text-align: center;
+		}
+
+		#{_breakpoint-rule('.text', $breakpoint, '-left')} {
+			text-align: left;
+		}
+
+		#{_breakpoint-rule('.text', $breakpoint, '-justify')} {
+			text-align: justify;
+		}
+
 	}
 }

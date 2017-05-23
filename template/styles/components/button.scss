@@ -1,0 +1,19 @@
+.button{
+	background-color: $color-main;
+	line-height: 50px;
+	border-radius: 2px;
+	border: 0;
+	color: white;
+	padding-left: 15px;
+	padding-right: 15px;
+	min-width: 200px;
+	transition: .3s all ease;
+	outline: none;
+	cursor: pointer;
+
+	@extend .shadow-dp-2;
+
+	&:hover{
+		@extend .shadow-dp-3;
+	}
+}
