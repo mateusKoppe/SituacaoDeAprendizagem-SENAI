@@ -9,7 +9,9 @@ class CCurso extends Controller{
 	}
 
 	public function ADetalhes(){
-		echo $this->getParams(1);
+		$this->renderInStructure("VCursoDetails", [
+			'id' => $this->getParams(1)
+		]);
 	}
 		
 }

@@ -17,7 +17,7 @@ class Controller {
 		switch ($structure) {
 			default:
 				$this->render('structure/header');
-				$this->render($view);
+				$this->render($view, $data);
 				$this->render('structure/footer');
 				break;
 		}
