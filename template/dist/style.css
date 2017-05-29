@@ -1453,7 +1453,8 @@ li {
   text-align: center;
   transition: .3s all ease;
   cursor: pointer;
-  position: relative; }
+  position: relative;
+  margin-bottom: 0; }
   .main-nav-content__item:hover {
     background-color: rgba(255, 255, 255, 0.2); }
     .main-nav-content__item:hover .main-nav-content__submenu {
