@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $page = value_or_default($_GET['page'], "");
 $pageParams = split('/', $page);
 
