@@ -37,7 +37,9 @@
 			<div class="container container--full-height">
 				<div class="row row--full-height">
 					<div class="col-5 col--v-center">
-						<img class="img-responsive img-responsive--reduce-only" src="./template/media/logo-with-description.png">
+						<a href="">
+							<img class="img-responsive img-responsive--reduce-only" src="./template/media/logo-with-description.png">
+						</a>
 					</div>
 				</div>
 			</div>

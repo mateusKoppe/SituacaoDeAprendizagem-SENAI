@@ -2,10 +2,10 @@
 
 include_if_file_exists('controllers/Controller.php');
 
-class CInstitucional extends Controller {
+class CIndex extends Controller{ 
 
 	public function AIndex() {
-		$this->renderInStructure('VInstitucional');
+		echo "por favor faça o login";
 	}
 
 }

@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'Controller.php';
+include_if_file_exists('controllers/Controller.php');
 
 class CContato extends Controller {
 	

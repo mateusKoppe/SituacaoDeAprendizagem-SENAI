@@ -1,6 +1,6 @@
 <?php
 
-require 'Controller.php';
+include_if_file_exists('controllers/Controller.php');
 
 class CCurso extends Controller{
 		
