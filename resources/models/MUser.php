@@ -1,10 +1,21 @@
 <?php 
 
+namespace models;
+
 class MUser{
+	private $id;
 	private $username;
 	private $password;
 	private $name;
 	private $permision;
+
+	public function setId($id){
+		$this->id = $id;
+	}
+
+	public function getId(){
+		return $this->id;
+	}
 
 	public function setUsername($username){
 		$this->username = $username;

@@ -1,7 +1,10 @@
 <?php
 
-include_if_file_exists('controllers/Controller.php');
-include_if_file_exists('models/MUser.php');
+
+namespace controllers\admin;
+
+use controllers\Controller;
+use models\MUser;
 
 class CLogin extends Controller { 
 

@@ -1,9 +1,11 @@
 <?php
 
-include_if_file_exists('controllers/Controller.php');
-include_if_file_exists('models/MUser.php');
+namespace controllers\admin;
 
-class CIndex extends Controller{ 
+use controllers\Controller;
+use models\MUser;
+
+class CIndex extends Controller { 
 
 	public function AIndex() {
 		$isLogged = value_or_default($_SESSION['user'], false);

@@ -1,5 +1,7 @@
 <?php 
 
+namespace services;
+
 class Database{
 	const HOST = "localhost";
 	const USER = "root";

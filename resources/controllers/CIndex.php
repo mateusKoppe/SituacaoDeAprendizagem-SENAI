@@ -1,6 +1,6 @@
 <?php
 
-include_if_file_exists('controllers/Controller.php');
+namespace controllers;
 
 class CIndex extends Controller{
 	public function AIndex(){
