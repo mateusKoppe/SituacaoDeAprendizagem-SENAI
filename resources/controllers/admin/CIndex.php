@@ -10,12 +10,11 @@ class CIndex extends Controller {
 	public function AIndex() {
 		$isLogged = value_or_default($_SESSION['user'], false);
 		if(!$isLogged){
-			$this->redirect('login');
+			$this->redirect('admin/login');
 			return;
 		};
 
-		print_r((new MUser())->getUsername());
-		print_r($_SESSION['user']->getUsername());
+		$this->renderInStructure('admin/VIndex', ['user' => $_SESSION['user']], 'admin');
 
 	}
 

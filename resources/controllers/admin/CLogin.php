@@ -5,19 +5,32 @@ namespace controllers\admin;
 
 use controllers\Controller;
 use models\MUser;
+use services\UserDAO;
 
 class CLogin extends Controller { 
 
 	public function AIndex() {
 		$this->whenGet(function(){
-			$this->renderInStructure('admin/VLogin', [], 'admin');
+			$this->render('admin/VLogin');
 		});
 
 		$this->whenPost(function(){
 			$user = new MUser();
 			$user->setUsername($_POST['login']);
-			$user->setUsername($_POST['password']);
-			$_SESSION['user'] = $user;
+			$user->setPassword($_POST['password']);
+			$dao = new UserDAO();
+			
+			$searchedUser = $dao->searchUser($user);
+
+			if($searchedUser){
+				$user->setId($searchedUser['id']);
+				$user->setName($searchedUser['name']);
+				$_SESSION['user'] = $user;
+				$this->redirect('../admin');
+				return;
+			}
+
+			$this->renderInStructure('admin/VLogin', ['error' => 'Esse úsuario não foi encontrado'], 'admin');
 		});
 	}
 

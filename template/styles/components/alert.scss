@@ -1,0 +1,32 @@
+@mixin alert($color){
+	background-color: $color + #777;
+	border-color: $color;
+	color: $color - #777;
+}
+
+.alert{
+	border-radius: 5px;
+	border: 1px solid;
+	padding: 10px;
+	text-align: center;
+
+	@include alert($color-state-primary);
+
+	@extends %shadow-dp-1;
+}
+
+.alert--danger{
+	@include alert($color-state-danger);
+}
+
+.alert--success{
+	@include alert($color-state-success);
+}
+
+.alert--info{
+	@include alert($color-state-info);
+}
+
+.alert--warning{
+	@include alert($color-state-warning);
+}

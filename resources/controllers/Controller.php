@@ -18,9 +18,9 @@ class Controller {
 	protected function renderInStructure($view, $data = [], $structure = ""){
 		switch ($structure) {
 			case 'admin':
-				$this->render('admin/header');
+				$this->render('admin/header', $data);
 				$this->render($view, $data);
-				$this->render('admin/footer');
+				$this->render('admin/footer', $data);
 				break;
 			default:
 				$this->render('structure/header');

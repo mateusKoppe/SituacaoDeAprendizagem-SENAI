@@ -1,3 +1,43 @@
+.buttons-group{
+	border-radius: 7px;
+	border: 1px solid #666;
+	display: flex;
+	align-items: strech;
+
+	> * {
+		border-radius: 0 !important;
+		flex: 1;
+		min-width: 0 !important;
+	}
+
+	.button:first-child{
+		border-top-left-radius: 7px !important;
+		border-bottom-left-radius: 7px !important;
+	}
+
+	.button:last-child{
+		border-top-right-radius: 7px !important;
+		border-bottom-right-radius: 7px !important;
+	}
+
+}
+
+.buttons-group--vertical{
+	flex-direction: column;
+
+	.button:first-child{
+		border-radius: 0 !important;
+		border-top-left-radius: 7px !important;
+		border-top-right-radius: 7px !important;
+	}
+
+	.button:last-child{
+		border-radius: 0 !important;
+		border-bottom-right-radius: 7px !important;
+		border-bottom-left-radius: 7px !important;
+	}
+}
+
 .button{
 	background-color: $color-main;
 	line-height: 50px;
