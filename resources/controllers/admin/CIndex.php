@@ -12,10 +12,9 @@ class CIndex extends Controller {
 		if(!$isLogged){
 			$this->redirect('admin/login');
 			return;
-		};
+		}
 
 		$this->renderInStructure('admin/VIndex', ['user' => $_SESSION['user']], 'admin');
-
 	}
 
 }

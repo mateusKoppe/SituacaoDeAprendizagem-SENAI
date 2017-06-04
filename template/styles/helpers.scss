@@ -30,3 +30,11 @@
 .bg-dark{
 	background-color: #222;
 }
+
+.basic-card{
+	border: 1px solid #666;
+	border-radius: 7px;
+	padding: 15px;
+
+	@extend .shadow-dp-2;
+}

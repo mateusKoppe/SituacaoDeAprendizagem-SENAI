@@ -7,7 +7,7 @@ use controllers\Controller;
 use models\MUser;
 use services\UserDAO;
 
-class CLogin extends Controller { 
+class CLogin extends Controller {
 
 	public function AIndex() {
 		$this->whenGet(function(){
@@ -19,8 +19,10 @@ class CLogin extends Controller {
 			$user->setUsername($_POST['login']);
 			$user->setPassword($_POST['password']);
 			$dao = new UserDAO();
-			
+
 			$searchedUser = $dao->searchUser($user);
+
+			print_r($searchedUser);
 
 			if($searchedUser){
 				$user->setId($searchedUser['id']);
@@ -30,7 +32,7 @@ class CLogin extends Controller {
 				return;
 			}
 
-			$this->renderInStructure('admin/VLogin', ['error' => 'Esse úsuario não foi encontrado'], 'admin');
+			$this->render('admin/VLogin', ['error' => 'Esse úsuario não foi encontrado']);
 		});
 	}
 

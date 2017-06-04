@@ -1,18 +1,97 @@
+@mixin button-state($color){
+	background-color: $color - #222;
+	color: #ddd;
+	border: 1px solid $color - #222;
+	transition: .1s all ease;
+
+	&:hover,
+	&:focus{
+		background-color: $color - #111;
+		border: 1px solid $color - #111;
+	}
+}
+
+.button{
+	background-color: $color-main;
+	line-height: 50px;
+	border-radius: 2px;
+	border: 0;
+	color: white;
+	display: inline-block;
+	padding-left: 15px;
+	padding-right: 15px;
+	min-width: 200px;
+	text-decoration: none;
+	transition: .3s all ease;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+
+	@extend .shadow-dp-2;
+
+	&:hover,
+	&:focus{
+		@extend .shadow-dp-3;
+		background-color: $color-main + #111;
+	}
+}
+
+.button--light{
+	background-color: white;
+	color: #222;
+	border: 1px solid #666;
+	transition: .1s all ease;
+
+	&:hover,
+	&:focus{
+		background-color: #e6e6e6;
+		
+	}
+}
+
+.button--success{
+	@include button-state($color-state-success);
+}
+
+.button--danger{
+	@include button-state($color-state-danger);
+}
+
+.button--info{
+	@include button-state($color-state-info);
+}
+
+.button--warning{
+	@include button-state($color-state-warning);
+}
+
+.button--primary{
+	@include button-state($color-state-primary);
+}
+
+.button--block{
+	display: block;
+	width: 100%;
+	min-width: 0;
+}
+
 .buttons-group{
 	border-radius: 7px;
-	border: 1px solid #666;
 	display: flex;
 	align-items: strech;
 
 	> * {
 		border-radius: 0 !important;
 		flex: 1;
+		border-top-width: 0;
+		z-index: 5;
 		min-width: 0 !important;
 	}
 
 	.button:first-child{
 		border-top-left-radius: 7px !important;
 		border-bottom-left-radius: 7px !important;
+		border-top-width: 1px;
 	}
 
 	.button:last-child{
@@ -36,31 +115,4 @@
 		border-bottom-right-radius: 7px !important;
 		border-bottom-left-radius: 7px !important;
 	}
-}
-
-.button{
-	background-color: $color-main;
-	line-height: 50px;
-	border-radius: 2px;
-	border: 0;
-	color: white;
-	padding-left: 15px;
-	padding-right: 15px;
-	min-width: 200px;
-	transition: .3s all ease;
-	outline: none;
-	cursor: pointer;
-
-	@extend .shadow-dp-2;
-
-	&:hover,
-	&:focus{
-		@extend .shadow-dp-3;
-		background-color: $color-main + #111;
-	}
-}
-
-.button--block{
-	display: block;
-	width: 100%;
 }

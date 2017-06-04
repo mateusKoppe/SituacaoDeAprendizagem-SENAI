@@ -24,4 +24,5 @@
 		<div class="col-3">
 			<?php include 'menu.php' ?>
 		</div>
-		<div class="col-9">		
+		<div class="col-9">
+			<div class="basic-card">	

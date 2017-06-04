@@ -1,5 +1,1 @@
-<div class="alert alert--primary">
-
-
-
-</div>
+<h1 class="simple-title">Main title</h1>

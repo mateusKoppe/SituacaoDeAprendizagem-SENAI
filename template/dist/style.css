@@ -413,7 +413,7 @@ template {
 .shadow-dp-1, .input:hover {
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12); }
 
-.shadow-dp-2, .button, .card, .input:focus {
+.shadow-dp-2, .basic-card, .button, .card, .input:focus {
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px 0 rgba(0, 0, 0, 0.14), 0 1px 14px 0 rgba(0, 0, 0, 0.12); }
 
 .shadow-dp-3, .button:hover, .button:focus {
@@ -430,6 +430,11 @@ template {
 
 .bg-dark {
   background-color: #222; }
+
+.basic-card {
+  border: 1px solid #666;
+  border-radius: 7px;
+  padding: 15px; }
 
 html, body {
   height: 100%; }
@@ -2008,6 +2013,18 @@ h2.main-title {
   font-size: .45em;
   color: #333; }
 
+h1.simple-title {
+  color: #222;
+  font-size: 32px;
+  margin-bottom: .7em;
+  margin-top: .45em; }
+
+h2.simple-title {
+  color: #222;
+  font-size: 28px;
+  margin-bottom: .7em;
+  margin-top: .45em; }
+
 body {
   color: #333;
   line-height: 1.3;
@@ -2141,18 +2158,96 @@ li {
   border-color: #f0ad4e;
   color: #793600; }
 
+.button {
+  background-color: #017338;
+  line-height: 50px;
+  border-radius: 2px;
+  border: 0;
+  color: white;
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-width: 200px;
+  text-decoration: none;
+  transition: .3s all ease;
+  outline: none;
+  cursor: pointer;
+  text-align: center; }
+  .button:hover, .button:focus {
+    background-color: #128449; }
+
+.button--light {
+  background-color: white;
+  color: #222;
+  border: 1px solid #666;
+  transition: .1s all ease; }
+  .button--light:hover, .button--light:focus {
+    background-color: #e6e6e6; }
+
+.button--success {
+  background-color: #3a963a;
+  color: #ddd;
+  border: 1px solid #3a963a;
+  transition: .1s all ease; }
+  .button--success:hover, .button--success:focus {
+    background-color: #4ba74b;
+    border: 1px solid #4ba74b; }
+
+.button--danger {
+  background-color: #b7312d;
+  color: #ddd;
+  border: 1px solid #b7312d;
+  transition: .1s all ease; }
+  .button--danger:hover, .button--danger:focus {
+    background-color: #c8423e;
+    border: 1px solid #c8423e; }
+
+.button--info {
+  background-color: #399ebc;
+  color: #ddd;
+  border: 1px solid #399ebc;
+  transition: .1s all ease; }
+  .button--info:hover, .button--info:focus {
+    background-color: #4aafcd;
+    border: 1px solid #4aafcd; }
+
+.button--warning {
+  background-color: #ce8b2c;
+  color: #ddd;
+  border: 1px solid #ce8b2c;
+  transition: .1s all ease; }
+  .button--warning:hover, .button--warning:focus {
+    background-color: #df9c3d;
+    border: 1px solid #df9c3d; }
+
+.button--primary {
+  background-color: #115895;
+  color: #ddd;
+  border: 1px solid #115895;
+  transition: .1s all ease; }
+  .button--primary:hover, .button--primary:focus {
+    background-color: #2269a6;
+    border: 1px solid #2269a6; }
+
+.button--block {
+  display: block;
+  width: 100%;
+  min-width: 0; }
+
 .buttons-group {
   border-radius: 7px;
-  border: 1px solid #666;
   display: flex;
   align-items: strech; }
   .buttons-group > * {
     border-radius: 0 !important;
     flex: 1;
+    border-top-width: 0;
+    z-index: 5;
     min-width: 0 !important; }
   .buttons-group .button:first-child {
     border-top-left-radius: 7px !important;
-    border-bottom-left-radius: 7px !important; }
+    border-bottom-left-radius: 7px !important;
+    border-top-width: 1px; }
   .buttons-group .button:last-child {
     border-top-right-radius: 7px !important;
     border-bottom-right-radius: 7px !important; }
@@ -2167,25 +2262,6 @@ li {
     border-radius: 0 !important;
     border-bottom-right-radius: 7px !important;
     border-bottom-left-radius: 7px !important; }
-
-.button {
-  background-color: #017338;
-  line-height: 50px;
-  border-radius: 2px;
-  border: 0;
-  color: white;
-  padding-left: 15px;
-  padding-right: 15px;
-  min-width: 200px;
-  transition: .3s all ease;
-  outline: none;
-  cursor: pointer; }
-  .button:hover, .button:focus {
-    background-color: #128449; }
-
-.button--block {
-  display: block;
-  width: 100%; }
 
 .card {
   width: 100%;
