@@ -22,8 +22,6 @@ class CLogin extends Controller {
 
 			$searchedUser = $dao->searchUser($user);
 
-			print_r($searchedUser);
-
 			if($searchedUser){
 				$user->setId($searchedUser['id']);
 				$user->setName($searchedUser['name']);

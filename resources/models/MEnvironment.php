@@ -11,9 +11,16 @@ class MEnvironment{
 	private $description;
 	private $capacity;
 	private $size;
+	private $accesses;
 
 	function __construct($data){
 		$this->name = $data['name'];
+		$this->active = value_or_default($data['active'], '');
+		$this->featured = value_or_default($data['featured'], '');
+		$this->description = value_or_default($data['description'], '');
+		$this->capacity = value_or_default($data['capacity'], 0);
+		$this->size = value_or_default($data['size'], '');
+		$this->accesses = value_or_default($data['access'], 0);
 	}
 
 	public function setId($id) {
@@ -70,6 +77,14 @@ class MEnvironment{
 
 	public function getSize(){
 		return $this->size; 
+	}
+
+	public function setAccesses($accesses){
+		return $this->accesses = $accesses;
+	}
+
+	public function getAccesses(){
+		return $this->accesses;
 	}
 
 }

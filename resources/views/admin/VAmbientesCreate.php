@@ -1,7 +1,7 @@
 <h1 class="simple-title">Cadastro de Ambientes</h1>
 <hr>
 <div>
-	<a href="" class="button button--warning">Voltar</a>
+	<a href="admin/ambientes" class="button button--warning">Voltar</a>
 	<hr>
 	<form  class="form mt--15" method="post">
 		<div class="form__section">

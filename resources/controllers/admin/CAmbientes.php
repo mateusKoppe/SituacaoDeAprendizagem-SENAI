@@ -15,7 +15,10 @@ class CAmbientes extends Controller{
 			return;
 		}
 
-		$this->renderInStructure('admin/VAmbientes', ['user' => $_SESSION['user']], 'admin');
+		$service = new EnvironmentDAO();
+		$environments = $service->getAllEnvironments();
+
+		$this->renderInStructure('admin/VAmbientes', ['user' => $_SESSION['user'], 'environments' => $environments], 'admin');
 	}
 
 	public function ANovo(){

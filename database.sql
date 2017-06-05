@@ -20,6 +20,7 @@ create table courses(
     workload varchar(30) null,
     description text null,
     objective text null,
+    accesses int default 0,
     target varchar(30) null,
     CONSTRAINT FK_category FOREIGN KEY (category) REFERENCES courses_category(id)
 );
@@ -71,6 +72,7 @@ create table environments(
     description text null,
     capacity int null,
     size float null,
+    accesses int default 0,
     primary_image varchar(50) null
 );
 
