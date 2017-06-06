@@ -15,12 +15,13 @@ class MEnvironment{
 
 	function __construct($data){
 		$this->name = $data['name'];
+		$this->id = value_or_default($data['id'], null);
 		$this->active = value_or_default($data['active'], '');
 		$this->featured = value_or_default($data['featured'], '');
 		$this->description = value_or_default($data['description'], '');
 		$this->capacity = value_or_default($data['capacity'], 0);
 		$this->size = value_or_default($data['size'], '');
-		$this->accesses = value_or_default($data['access'], 0);
+		$this->accesses = value_or_default($data['accesses'], 0);
 	}
 
 	public function setId($id) {

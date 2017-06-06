@@ -43,4 +43,20 @@ class EnvironmentDAO{
 		return $environments;
 	}
 
+	public function getEnvironmentById($id) {
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT * FROM environments WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		
+		if($sth->rowCount()){
+			$environment = new MEnvironment($sth->fetch(\PDO::FETCH_ASSOC));
+			return $environment;
+		}
+		return false;
+	}
+
 }

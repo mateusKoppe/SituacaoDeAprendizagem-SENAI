@@ -8,13 +8,15 @@ use services\EnvironmentDAO;
 
 class CAmbientes extends Controller{
 
-	public function AIndex(){
+	function __construct(){
 		$isLogged = value_or_default($_SESSION['user'], false);
 		if(!$isLogged){
 			$this->redirect('admin/login');
 			return;
 		}
+	}
 
+	public function AIndex(){
 		$service = new EnvironmentDAO();
 		$environments = $service->getAllEnvironments();
 
@@ -46,15 +48,21 @@ class CAmbientes extends Controller{
 		});
 	}
 
+	public function AEditar(){
+		$id = $this->getParams(2);
+		
+		$service = new EnvironmentDAO();
+		$environment = $service->getEnvironmentById($id);
+
+		print_r($environment->getName());
+
+	}
+
 	public function ABuscar(){
 
 	}
 
 	public function ARemover(){
-
-	}
-
-	public function AEditar(){
 
 	}
 

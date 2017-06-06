@@ -235,83 +235,83 @@
 		}
 
 		#{_breakpoint-rule('.m', $breakpoint, '-15')} {
-			margin: 15px;
+			margin: 15px !important;
 		}
 
 		#{_breakpoint-rule('.m', $breakpoint, '-10')} {
-			margin: 10px;
+			margin: 10px !important;
 		}
 
 		#{_breakpoint-rule('.m', $breakpoint, '-5')} {
-			margin: 5px;
+			margin: 5px !important;
 		}
 
 		#{_breakpoint-rule('.m', $breakpoint, '-0')} {
-			margin: 0;
+			margin: 0 !important;
 		}				
 	
 		#{_breakpoint-rule('.mt', $breakpoint, '-15')} {
-			margin-top: 15px;
+			margin-top: 15px !important;
 		}
 
 		#{_breakpoint-rule('.mt', $breakpoint, '-10')} {
-			margin-top: 10px;
+			margin-top: 10px !important;
 		}
 
 		#{_breakpoint-rule('.mt', $breakpoint, '-5')} {
-			margin-top: 5px;
+			margin-top: 5px !important;
 		}
 
 		#{_breakpoint-rule('.mt', $breakpoint, '-0')} {
-			margin-top: 0;
+			margin-top: 0 !important;
 		}
 
 		#{_breakpoint-rule('.mb', $breakpoint, '-15')} {
-			margin-bottom: 15px;
+			margin-bottom: 15px !important;
 		}
 
 		#{_breakpoint-rule('.mb', $breakpoint, '-10')} {
-			margin-bottom: 10px;
+			margin-bottom: 10px !important;
 		}
 
 		#{_breakpoint-rule('.mb', $breakpoint, '-5')} {
-			margin-bottom: 5px;
+			margin-bottom: 5px !important;
 		}
 
 		#{_breakpoint-rule('.mb', $breakpoint, '-0')} {
-			margin-bottom: 0;
+			margin-bottom: 0 !important;
 		}
 
 		#{_breakpoint-rule('.ml', $breakpoint, '-15')} {
-			margin-left: 15px;
+			margin-left: 15px !important;
 		}
 
 		#{_breakpoint-rule('.ml', $breakpoint, '-10')} {
-			margin-left: 10px;
+			margin-left: 10px !important;
 		}
 
 		#{_breakpoint-rule('.ml', $breakpoint, '-5')} {
-			margin-left: 5px;
+			margin-left: 5px !important;
 		}
 
 		#{_breakpoint-rule('.ml', $breakpoint, '-0')} {
-			margin-left: 0;
+			margin-left: 0 !important;
 		}	
 
 		#{_breakpoint-rule('.mr', $breakpoint, '-15')} {
-			margin-right: 15px;
+			margin-right: 15px !important;
 		}
 
 		#{_breakpoint-rule('.mr', $breakpoint, '-10')} {
-			margin-right: 10px;
+			margin-right: 10px !important;
 		}
 
 		#{_breakpoint-rule('.mr', $breakpoint, '-5')} {
-			margin-right: 5px;
+			margin-right: 5px !important;
 		}
 
 		#{_breakpoint-rule('.mr', $breakpoint, '-0')} {
-			margin-right: 0px;
+			margin-right: 0px !important;
 		}
 
 	}

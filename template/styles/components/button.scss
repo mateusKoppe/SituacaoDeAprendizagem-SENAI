@@ -50,6 +50,12 @@
 	}
 }
 
+.button--small{
+	min-width: 0;
+	padding: 2px 5px;
+	line-height: 30px;
+}
+
 .button--success{
 	@include button-state($color-state-success);
 }
