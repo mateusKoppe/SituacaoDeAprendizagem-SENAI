@@ -123,7 +123,3 @@ class MCourse{
 	}
 
 }
-
-
-
-
