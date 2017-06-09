@@ -428,6 +428,9 @@ template {
   border-radius: 7px;
   padding: 15px; }
 
+.hide {
+  display: none; }
+
 html, body {
   height: 100%; }
 
@@ -2317,7 +2320,7 @@ textarea.input {
     padding: 5px 10px; }
 
 .table--striped tr:nth-of-type(odd) {
-  background-color: #ccc; }
+  background-color: #d5d5d5; }
 
 .banner-slider__wrapper {
   position: relative;

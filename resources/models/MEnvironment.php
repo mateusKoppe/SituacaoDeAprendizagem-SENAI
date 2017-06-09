@@ -12,9 +12,10 @@ class MEnvironment{
 	private $capacity;
 	private $size;
 	private $accesses;
+	private $primaryImage;
 
 	function __construct($data){
-		$this->name = $data['name'];
+		$this->name = value_or_default($data['name'], '');
 		$this->id = value_or_default($data['id'], null);
 		$this->active = value_or_default($data['active'], '');
 		$this->featured = value_or_default($data['featured'], '');
@@ -22,6 +23,7 @@ class MEnvironment{
 		$this->capacity = value_or_default($data['capacity'], 0);
 		$this->size = value_or_default($data['size'], '');
 		$this->accesses = value_or_default($data['accesses'], 0);
+		$this->primaryImage = value_or_default($data['primary-image'], '');
 	}
 
 	public function setId($id) {
@@ -86,6 +88,14 @@ class MEnvironment{
 
 	public function getAccesses(){
 		return $this->accesses;
+	}
+
+	public function setPrimaryImage($primaryImage){
+		$this->primaryImage = $primaryImage;
+	}
+
+	public function getPrimaryImage(){
+		return $this->primaryImage;
 	}
 
 }

@@ -3,6 +3,7 @@
 namespace services;
 
 use models\MEnvironment;
+use services\Uploads;
 
 class EnvironmentDAO{
 
@@ -10,7 +11,7 @@ class EnvironmentDAO{
 		$db = new Database;
 		$db = $db->create();
 
-		$sql = "INSERT INTO environments (active, featured, name, description, capacity, size) VALUES (:active, :featured, :name, :description, :capacity, :size)";
+		$sql = "INSERT INTO environments (active, featured, name, description, capacity, size, primary_image) VALUES (:active, :featured, :name, :description, :capacity, :size, :primary_image)";
 
 		$sth = $db->prepare($sql);		
 		$sth->bindParam(':active', $environment->getActive());
@@ -19,10 +20,9 @@ class EnvironmentDAO{
 		$sth->bindParam(':description', $environment->getDescription());
 		$sth->bindParam(':capacity', $environment->getCapacity());
 		$sth->bindParam(':size', $environment->getSize());
+		$sth->bindParam(':primary_image', $environment->getPrimaryImage());
 		$sth->execute();
 		$sth->rowCount();
-
-		header('location: admin/ambientes');
 	}
 
 	public function getAllEnvironments() {
@@ -57,6 +57,25 @@ class EnvironmentDAO{
 			return $environment;
 		}
 		return false;
+	}
+
+	public function removeEnvironment($model){
+		$db = new Database();
+		$db = $db->create();
+		$uploads = new Uploads();
+
+		$sql = "SELECT * FROM environments WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+		$primary_image = $sth->fetch(\PDO::FETCH_ASSOC)['primary_image'];
+		$uploads->removeFile($primary_image);
+
+		$sql = "DELETE FROM environments WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$status = $sth->execute();
+		return $sth->rowCount();
 	}
 
 }

@@ -34,14 +34,14 @@ create table courses_skills(
 
 create table courses_images(
 	id int primary key auto_increment,
-    name varchar(50) not null,
+    value varchar(50) not null,
     course int not null,
     CONSTRAINT FK_image_course FOREIGN KEY (course) REFERENCES courses(id)
 );
 
 create table courses_videos(
 	id int primary key auto_increment,
-    name varchar(50) not null,
+    value varchar(50) not null,
     course int not null,
     CONSTRAINT FK_video_course FOREIGN KEY (course) REFERENCES courses(id)
 );
@@ -78,14 +78,14 @@ create table environments(
 
 create table environments_images(
 	id int primary key auto_increment,
-    name varchar(50) not null,
+    value varchar(50) not null,
     environment int not null,
     CONSTRAINT FK_image_environment FOREIGN KEY (environment) REFERENCES environments(id)
 );
 
 create table environments_videos(
 	id int primary key auto_increment,
-    name varchar(50) not null,
+    value varchar(50) not null,
     environment int not null,
     CONSTRAINT FK_video_environment FOREIGN KEY (environment) REFERENCES environments(id)
 );

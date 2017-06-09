@@ -3,7 +3,7 @@
 <div>
 	<a href="admin/ambientes" class="button button--warning">Voltar</a>
 	<hr>
-	<form  class="form mt--15" method="post">
+	<form  class="form mt--15" method="post" enctype="multipart/form-data">
 		<div class="form__section">
 			<span class="pr--10 pl--10">
 				<input type="checkbox" value="1" id="active" name="active" checked=""> 
@@ -35,9 +35,18 @@
 			</div>
 		</div>
 		<div class="form__section">
-			<label type="button" class="button button--primary">Imagem principal</label>
-			<label type="button" class="button button--primary">Cadastrar imagem</label>
-			<label type="button" class="button button--primary">Cadastrar vídeo</label>
+			<label>
+				<a tabindex="0" role="button" class="button button--primary">Imagem principal</a>
+				<input name="primary-image" type="file" class="hide">
+			</label>
+			<label>	
+				<a tabindex="0" class="button button--primary">Cadastrar imagem</a>
+				<input name="images[]" type="file" class="hide" multiple="">
+			</label>
+			<label>	
+				<a tabindex="0" class="button button--primary">Cadastrar vídeo</a>
+				<input name="video" type="file" class="hide">
+			</label>
 		</div>
 		<div class="form__section">
 			<button class="button button--success">Salvar</button>
