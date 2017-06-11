@@ -25,6 +25,35 @@ class EnvironmentDAO{
 		$sth->rowCount();
 	}
 
+	public function edit($environment){
+		$db = new Database;
+		$db = $db->create();
+
+		$sql = "UPDATE environments SET active = :active, featured = :featured, name = :name, description = :description, capacity = :capacity, size = :size";
+		if($environment->getPrimaryImage()){
+			$sql .= ", primary_image = :primary_image";
+			$actualEnvironment = $this->getEnvironmentById($environment->getId());
+			$image = $actualEnvironment->getPrimaryImage();
+			$uploads = new Uploads();
+			$uploads->removeFile($image);
+		}
+
+		$sql .= " WHERE id = :id";
+
+		$sth = $db->prepare($sql);		
+		$sth->bindParam(':active', $environment->getActive());
+		$sth->bindParam(':featured', $environment->getFeatured());
+		$sth->bindParam(':name', $environment->getName());
+		$sth->bindParam(':description', $environment->getDescription());
+		$sth->bindParam(':capacity', $environment->getCapacity());
+		$sth->bindParam(':size', $environment->getSize());
+		if($environment->getPrimaryImage()){
+			$sth->bindParam(':primary_image', $environment->getPrimaryImage());
+		}
+		$sth->bindParam(':id', $environment->getId());
+		$sth->execute();
+	}
+
 	public function getAllEnvironments() {
 		$db = new Database();
 		$db = $db->create();
@@ -63,6 +92,19 @@ class EnvironmentDAO{
 		$db = new Database();
 		$db = $db->create();
 		$uploads = new Uploads();
+		
+		$sql = "SELECT * FROM environments_images WHERE environment = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+		while($image = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$this->removeImage($image['id']);
+		}
+
+		$sql = "DELETE FROM environments_images WHERE environment = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
 
 		$sql = "SELECT * FROM environments WHERE id = :id";
 		$sth = $db->prepare($sql);
@@ -74,7 +116,8 @@ class EnvironmentDAO{
 		$sql = "DELETE FROM environments WHERE id = :id";
 		$sth = $db->prepare($sql);
 		$sth->bindParam(':id', $model->getId());
-		$status = $sth->execute();
+		$sth->execute();
+		
 		return $sth->rowCount();
 	}
 

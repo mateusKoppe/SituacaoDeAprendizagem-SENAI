@@ -54,9 +54,42 @@ class CAmbientes extends Controller{
 	}
 
 	public function AEditar(){
-		$id = $this->getParams(2);
-		$service = new EnvironmentDAO();
-		$environment = $service->getEnvironmentById($id);
+		$this->whenGet(function(){
+			$id = $this->getParams(2);
+			$service = new EnvironmentDAO();
+			$environment = $service->getEnvironmentById($id);
+			$values = [
+				"active" => $environment->getActive(),
+				"featured" => $environment->getFeatured(),
+				"name" => $environment->getName(),
+				"description" => $environment->getDescription(),
+				"capacity" => $environment->getCapacity(),
+				"size" => $environment->getSize(),
+				"primary_image" => $environment->getPrimaryImage(),
+			];
+			$this->renderInStructure('admin/ambientes/VAmbientesEditar', [
+				'user' => $_SESSION['user'],
+				'values' => $values
+			], 'admin');
+		});
+
+		$this->whenPost(function(){
+			$id = $this->getParams(2);
+			$service = new EnvironmentDAO();
+			$environment = new MEnvironment($_POST);
+			$uploads = new Uploads();
+	
+			if($_FILES['primary_image']['name']){
+				$primary_image = $_FILES['primary_image'];
+				$primary_image['name'] =  generate_file_name($primary_image['name']);
+				$uploads->uploadFile($primary_image);
+				$environment->setPrimaryImage($primary_image['name']);
+			}
+
+			$environment->setId($id);
+			$service->edit($environment);
+			$this->redirect('../../../admin/ambientes');
+		});
 	}
 
 	public function ABuscar(){
