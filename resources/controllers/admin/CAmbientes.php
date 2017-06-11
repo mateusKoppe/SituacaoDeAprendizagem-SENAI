@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace controllers\admin;
 
@@ -22,40 +22,27 @@ class CAmbientes extends Controller{
 		$service = new EnvironmentDAO();
 		$environments = $service->getAllEnvironments();
 
-		$this->renderInStructure('admin/VAmbientes', ['user' => $_SESSION['user'], 'environments' => $environments], 'admin');
+		$this->renderInStructure('admin/ambientes/VAmbientes', [
+			'user' => $_SESSION['user'],
+			'environments' => $environments
+		], 'admin');
 	}
 
 	public function ANovo(){
 		$this->whenGet(function() {
-			$this->renderInStructure('admin/VAmbientesCreate', ['user' => $_SESSION['user']], 'admin');
+			$this->renderInStructure('admin/ambientes/VAmbientesCreate', ['user' => $_SESSION['user']], 'admin');
 		});
 
 		$this->whenPost(function(){
-
 			$uploads = new Uploads();
 
-			$primary_image = $_FILES['primary-image'];
+			$primary_image = $_FILES['primary_image'];
 			$primary_image['name'] =  generate_file_name($primary_image['name']);
 			$uploads->uploadFile($primary_image);
 
-			$images = $_FILES['images'];
-			foreach ($images['name'] as $key => $file) {
-				$image_name = generate_file_name($images['name'][$key]);
-				echo $image_name;
-				$image = [
-					'tmp_name' => $images['tmp_name'][$key],
-					'name' => $image_name
-				];
-				$uploads->uploadFile($image);
-			}
-
-			$video = $_FILES['video'];
-			$video['name'] =  generate_file_name($video['name']);
-			$uploads->uploadFile($video);
-
 			$environmentData = $_POST;
 
-			$environmentData['primary-image'] = $primary_image['name'];
+			$environmentData['primary_image'] = $primary_image['name'];
 
 			$environment = new MEnvironment($environmentData);
 
@@ -63,7 +50,6 @@ class CAmbientes extends Controller{
 			$service->save($environment);
 
 			$this->redirect('../../admin/ambientes');
-
 		});
 	}
 
@@ -83,8 +69,31 @@ class CAmbientes extends Controller{
 
 		$service = new EnvironmentDAO();
 		$service->removeEnvironment($modal);
-	
+
 		$this->redirect('../../../admin/ambientes');
+	}
+
+	public function AGaleria(){
+		$this->whenGet(function(){
+			$this->renderInStructure('admin/ambientes/VAmbientesGalery', ['user' => $_SESSION['user']], 'admin');
+		});
+
+
+		$this->whenPost(function(){
+			$id = $this->getParams(2);
+			$service = new EnvironmentDAO();
+			$environment = $service->getEnvironmentById($id);
+
+			$uploads = new Uploads();
+
+			$new_image = $_FILES['new_image'];
+			$new_image['name'] =  generate_file_name($new_image['name']);
+			$uploads->uploadFile($new_image);
+
+			$service->addImage($id, $new_image['name']);
+			$this->redirect("../galeria/$id");
+		});
+
 	}
 
 }

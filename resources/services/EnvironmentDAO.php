@@ -78,4 +78,16 @@ class EnvironmentDAO{
 		return $sth->rowCount();
 	}
 
+	public function addImage($id, $image_name){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "INSERT INTO environments_images (name, environment) VALUES (:name, :environment)";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':name', $image_name);
+		$sth->bindParam(':environment', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
 }
