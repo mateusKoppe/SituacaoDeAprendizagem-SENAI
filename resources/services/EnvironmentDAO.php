@@ -90,4 +90,34 @@ class EnvironmentDAO{
 		return $sth->rowCount();
 	}
 
+	public function removeImage($id){
+		$db = new Database();
+		$db = $db->create();
+		$uploads = new Uploads();
+
+		$sql = "SELECT name FROM environments_images WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		$image = $sth->fetch(\PDO::FETCH_ASSOC);
+		$uploads->removeFile($image['name']);
+
+		$sql = "DELETE FROM environments_images WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
+	public function getEnvironmentAllImages($id){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT id, name FROM environments_images WHERE environment = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
 }

@@ -75,7 +75,14 @@ class CAmbientes extends Controller{
 
 	public function AGaleria(){
 		$this->whenGet(function(){
-			$this->renderInStructure('admin/ambientes/VAmbientesGalery', ['user' => $_SESSION['user']], 'admin');
+			$id = $this->getParams(2);
+			$service = new EnvironmentDAO();
+			$images = $service->getEnvironmentAllImages($id);
+			$this->renderInStructure('admin/ambientes/VAmbientesGalery', [
+				'user' => $_SESSION['user'],
+				'images' => $images
+			], 'admin');
+
 		});
 
 
@@ -94,6 +101,13 @@ class CAmbientes extends Controller{
 			$this->redirect("../galeria/$id");
 		});
 
+	}
+
+	public function AExcluirfoto(){
+		$id = $this->getParams(2);
+		$service = new EnvironmentDAO();
+		$service->removeImage($id);
+		$this->redirect("../galeria/$id");
 	}
 
 }

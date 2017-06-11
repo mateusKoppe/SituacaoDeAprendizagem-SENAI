@@ -31,13 +31,15 @@
 			<th></th>
 		</tr>
 		
+		<?php foreach ($data['images'] as $key => $image): ?>
 		<tr>
-			<td style="width: 100%">
-				<img src="" alt="">
+			<td class="text--center" style="width: 100%">
+				<img style="max-width: 100%;max-height: 200px" src="uploads/<?php echo $image['name'] ?>" alt="">
 			</td>
 			<td class="text--center">
-				<a href="admin/ambientes/excluirfoto/5" class="button button--danger button--small">Excluir</a>
+				<a href="admin/ambientes/excluirfoto/<?php echo $image['id'] ?>" class="button button--danger button--small">Excluir</a>
 			</td>
 		</tr>
+		<?php endforeach; ?>
 	</table>
 </div>
