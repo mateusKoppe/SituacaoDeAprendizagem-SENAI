@@ -133,14 +133,50 @@ class CAmbientes extends Controller{
 			$service->addImage($id, $new_image['name']);
 			$this->redirect("../galeria/$id");
 		});
-
 	}
 
 	public function AExcluirfoto(){
 		$id = $this->getParams(2);
 		$service = new EnvironmentDAO();
+		$image = $service->getImage($id);
 		$service->removeImage($id);
-		$this->redirect("../galeria/$id");
+		$this->redirect("../galeria/" . $image['environment']);
+	}
+
+	public function AExcluirvideo(){
+		$id = $this->getParams(2);
+		$service = new EnvironmentDAO();
+		$video = $service->getVideo($id);
+		$service->removeVideo($id);
+		$this->redirect("../videos/" . $video['environment']);
+	}
+
+	public function AVideos(){
+		$this->whenGet(function(){
+			$id = $this->getParams(2);
+			$service = new EnvironmentDAO();
+			$videos = $service->getEnvironmentAllVideos($id);
+			$this->renderInStructure('admin/ambientes/VAmbientesVideos', [
+				'user' => $_SESSION['user'],
+				'videos' => $videos
+			], 'admin');
+		});
+
+
+		$this->whenPost(function(){
+			$id = $this->getParams(2);
+			$service = new EnvironmentDAO();
+			$environment = $service->getEnvironmentById($id);
+
+			$uploads = new Uploads();
+
+			$new_video = $_FILES['new_video'];
+			$new_video['name'] =  generate_file_name($new_video['name']);
+			$uploads->uploadFile($new_video);
+
+			$service->addVideo($id, $new_video['name']);
+			$this->redirect("../videos/$id");
+		});
 	}
 
 }

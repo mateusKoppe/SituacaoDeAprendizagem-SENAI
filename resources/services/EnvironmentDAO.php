@@ -121,6 +121,26 @@ class EnvironmentDAO{
 		return $sth->rowCount();
 	}
 
+	public function getImage($id){
+		$db = new Database();
+		$db = $db->create();
+		$sql = "SELECT * FROM environments_images WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	public function getVideo($id){
+		$db = new Database();
+		$db = $db->create();
+		$sql = "SELECT * FROM environments_videos WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetch(\PDO::FETCH_ASSOC);
+	}
+
 	public function addImage($id, $image_name){
 		$db = new Database();
 		$db = $db->create();
@@ -128,6 +148,18 @@ class EnvironmentDAO{
 		$sql = "INSERT INTO environments_images (name, environment) VALUES (:name, :environment)";
 		$sth = $db->prepare($sql);
 		$sth->bindParam(':name', $image_name);
+		$sth->bindParam(':environment', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
+	public function addVideo($id, $video_name){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "INSERT INTO environments_videos (name, environment) VALUES (:name, :environment)";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':name', $video_name);
 		$sth->bindParam(':environment', $id);
 		$sth->execute();
 		return $sth->rowCount();
@@ -152,11 +184,41 @@ class EnvironmentDAO{
 		return $sth->rowCount();
 	}
 
+	public function removeVideo($id){
+		$db = new Database();
+		$db = $db->create();
+		$uploads = new Uploads();
+
+		$sql = "SELECT name FROM environments_videos WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		$video = $sth->fetch(\PDO::FETCH_ASSOC);
+		$uploads->removeFile($video['name']);
+
+		$sql = "DELETE FROM environments_videos WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
 	public function getEnvironmentAllImages($id){
 		$db = new Database();
 		$db = $db->create();
 
 		$sql = "SELECT id, name FROM environments_images WHERE environment = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
+	public function getEnvironmentAllVideos($id){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT id, name FROM environments_videos WHERE environment = :id";
 		$sth = $db->prepare($sql);
 		$sth->bindParam(':id', $id);
 		$sth->execute();

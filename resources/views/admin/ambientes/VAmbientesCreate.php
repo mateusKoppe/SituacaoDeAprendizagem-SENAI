@@ -37,7 +37,7 @@
 		<div class="form__section">
 			<label>
 				<a tabindex="0" role="button" class="button button--primary">Imagem principal</a>
-				<input name="primary_image" id="primary_image" type="file" class="hide">
+				<input name="primary_image" id="primary_image" type="file" accept="image/*" class="hide">
 				<div id="primary_image-label"> </div>
 				<script>
 					document.getElementById('primary_image').onchange = function () {

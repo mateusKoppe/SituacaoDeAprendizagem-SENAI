@@ -8,7 +8,7 @@
 			<div class="form__section row">
 				<label class="col-3">
 					<a tabindex="0" role="button" class="button button--primary">Nova Imagem</a>
-					<input name="new_image" id="new_image" type="file" class="hide">
+					<input name="new_image" accept="image/*" id="new_image" type="file" accept="image/*" class="hide">
 					<div id="new_image-label"> </div>
 					<script>
 						document.getElementById('new_image').onchange = function () {
