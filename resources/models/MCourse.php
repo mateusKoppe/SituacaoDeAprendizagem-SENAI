@@ -4,18 +4,18 @@ namespace models;
 
 class MCourse{
 	private $id;
-    private $active;	
-    private $featured;
-    private $name;
-    private $primaryImage;
-    private $period;
-    private $tableDescription;
-    private $category;
-    private $workload;
-    private $description;
-    private $objective;
-    private $accesses;
-    private $target;
+	private $active;	
+	private $featured;
+	private $name;
+	private $primaryImage;
+	private $period;
+	private $tableDescription;
+	private $category;
+	private $workload;
+	private $description;
+	private $objective;
+	private $accesses;
+	private $target;
 
 
 	public function setId($id){
@@ -33,15 +33,15 @@ class MCourse{
 	public function getActive(){
 		return $this->active;
 	}
-   
+
 	public function setFeatured($featured){
 		$this->featured = ($featured);
 	}
-  
+
 	public function getFeatured(){
 		return $this->featured;
 	}
- 
+
 	public function setName($name){
 		$this->name = $name;
 	}
@@ -57,22 +57,22 @@ class MCourse{
 	public function getPrimaryImage(){
 		return $this->primaryImage;
 	}
-   
+
 	public function setPeriod($period){
 		$this->period = $period;
 	}
 
 	public function getPeriod(){
 		return $this->period;
-    }
+	}
 
-    public function setTableDescription($tableDescription){
+	public function setTableDescription($tableDescription){
 		$this->tableDescription = $tableDescription;
 	}
 
 	public function getTableDescription(){
 		return $this->tableDescription;
-    }
+	}
 
 	public function setCategory($category){
 		$this->category = $category;
@@ -80,7 +80,7 @@ class MCourse{
 
 	public function getCategory(){
 		return $this->category;
-    }
+	}
 
 	public function setWorkload($workload){
 		$this->workload = $workload;
@@ -88,7 +88,7 @@ class MCourse{
 
 	public function getWorkload(){
 		return $this->workload;
-    }
+	}
 
 	public function setDescription($description){
 		$this->description = $description;
@@ -104,9 +104,9 @@ class MCourse{
 
 	public function getObjective(){
 		return $this->objective;
-    }
+	}
 
-    public function setAccesses($accesses){
+	public function setAccesses($accesses){
 		$this->accesses = $accesses;
 	}
 
@@ -114,8 +114,8 @@ class MCourse{
 		return $this->accesses;
 	}
 
-    public function setTarget($target){
- 		$this->target = $target;
+	public function setTarget($target){
+		$this->target = $target;
 	}
 
 	public function gettarget(){

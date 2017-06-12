@@ -106,6 +106,19 @@ class EnvironmentDAO{
 		$sth->bindParam(':id', $model->getId());
 		$sth->execute();
 
+		$sql = "SELECT * FROM environments_videos WHERE environment = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+		while($video = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$this->removevideo($video['id']);
+		}
+
+		$sql = "DELETE FROM environments_videos WHERE environment = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+
 		$sql = "SELECT * FROM environments WHERE id = :id";
 		$sth = $db->prepare($sql);
 		$sth->bindParam(':id', $model->getId());

@@ -3,44 +3,86 @@
 namespace services;
 
 use models\MCourse;
+use services\Uploads;
 
-class CoursesDAO{
-
-	const DB_TABLENAME = "courses";
+class CourseDAO{
 
 	public function save($course){
 		$db = new Database;
 		$db = $db->create();
 
-		$sql = "INSERT INTO " . SELF::DB_TABLENAME . " (active, featured, name, primaryImage, period, tableDescription, category, workload, description, objective, accesses, target) VALUES (:active, :featured, :name, primaryImage, period, tableDescription, category, workload,  description, objective, accesses, target)";
+		$sql = "INSERT INTO courses (active, featured, name, primary_image, period, table_description, area, category, workload, description, objective, accesses, target) VALUES (:active, :featured, :name, :primary_image, :period, :table_description, :area, :category, :workload, :description, :objective, :accesses, :target)";
 
 		$sth = $db->prepare($sql);		
-		$sth->bindParam(':active', $course->getActive());
-		$sth->bindParam(':featured', $course->getFeatured());
-		$sth->bindParam(':name', $course->getName());
-		$sth->bindParam(':primaryImage', $course->getPrimaryImage());
-		$sth->bindParam(':period', $course->getPeriod());
-		$sth->bindParam(':tableDescription', $course->getTableDescription());
-		$sth->bindParam(':category', $course->getCategory());
-		$sth->bindParam(':workload', $course->getWorkload());
-		$sth->bindParam(':description', $course->getDescription());
-		$sth->bindParam(':objective', $course->getObjective());
-		$sth->bindParam(':accesses', $course->getAccesses());
-		$sth->bindParam(':target', $course->getarget());
+		$sth->bindparam(':active',$course->getActive()); 
+		$sth->bindparam(':featured', $course->getFeatured());
+		$sth->bindparam(':name', $course->getName());
+		$sth->bindparam(':primary_image', $course->getPrimaryImage());
+		$sth->bindparam(':period', $course->getPeriod());
+		$sth->bindparam(':table_description', $course->getTableDescription());
+		$sth->bindparam(':area', $course->getArea());
+		$sth->bindparam(':category', $course->getCategory());
+		$sth->bindparam(':workload', $course->getWorkLoad());
+		$sth->bindparam(':description', $course->getDescription());
+		$sth->bindparam(':objective', $course->getObjective());
+		$sth->bindparam(':accesses', $course->getAccesses());
+		$sth->bindparam(':target', $course->getAccesses());
 		$sth->execute();
 		$sth->rowCount();
-
-		header('location: admin/ambientes');
 	}
 
+	public function edit($course){
+		$db = new Database;
+		$db = $db->create();
 
+		$sql = "UPDATE courses SET
+			active = :active, 
+			featured = :featured, 
+			name = :name, 
+			period = :period, 
+			table_description = :table_description, 
+			area = :area, 
+			category = :category, 
+			workload = :workload, 
+			description = :description, 
+			objective = :objective, 
+			accesses = :accesses, 
+			target = :target, ";
+		if($course->getPrimaryImage()){
+			$sql .= ", primary_image = :primary_image";
+			$actualCourse = $this->getCourseById($course->getId());
+			$image = $actualCourse->getPrimaryImage();
+			$uploads = new Uploads();
+			$uploads->removeFile($image);
+		}
 
+		$sql .= " WHERE id = :id";
+
+		$sth = $db->prepare($sql);		
+		$sth->bindparam(':active',$course->getActive()); 
+		$sth->bindparam(':featured', $course->getFeatured());
+		$sth->bindparam(':name', $course->getName());
+		$sth->bindparam(':period', $course->getPeriod());
+		$sth->bindparam(':table_description', $course->getTableDescription());
+		$sth->bindparam(':area', $course->getArea());
+		$sth->bindparam(':category', $course->getCategory());
+		$sth->bindparam(':workload', $course->getWorkLoad());
+		$sth->bindparam(':description', $course->getDescription());
+		$sth->bindparam(':objective', $course->getObjective());
+		$sth->bindparam(':accesses', $course->getAccesses());
+		$sth->bindparam(':target', $course->getAccesses());
+		if($course->getPrimaryImage()){
+			$sth->bindParam(':primary_image', $course->getPrimaryImage());
+		}
+		$sth->bindParam(':id', $course->getId());
+		$sth->execute();
+	}
 
 	public function getAllCourses() {
 		$db = new Database();
 		$db = $db->create();
 
-		$sql = "SELECT * FROM " . SELF::DB_TABLENAME;
+		$sql = "SELECT * FROM courses";
 
 		$sth = $db->query($sql);
 
@@ -54,13 +96,11 @@ class CoursesDAO{
 		return $courses;
 	}
 
-
-
 	public function getCourseById($id) {
 		$db = new Database();
 		$db = $db->create();
 
-		$sql = "SELECT * FROM " . SELF::DB_TABLENAME . " WHERE id = :id";
+		$sql = "SELECT * FROM courses WHERE id = :id";
 		$sth = $db->prepare($sql);
 		$sth->bindParam(':id', $id);
 		$sth->execute();
@@ -70,6 +110,156 @@ class CoursesDAO{
 			return $course;
 		}
 		return false;
+	}
+
+	public function removeCourse($model){
+		$db = new Database();
+		$db = $db->create();
+		$uploads = new Uploads();
+		
+		$sql = "SELECT * FROM courses_images WHERE course = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+		while($image = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$this->removeImage($image['id']);
+		}
+
+		$sql = "DELETE FROM courses_images WHERE course = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+
+		$sql = "SELECT * FROM courses_videos WHERE course = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+		while($video = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$this->removevideo($video['id']);
+		}
+
+		$sql = "DELETE FROM courses_videos WHERE course = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+
+		$sql = "SELECT * FROM courses WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+		$primary_image = $sth->fetch(\PDO::FETCH_ASSOC)['primary_image'];
+		$uploads->removeFile($primary_image);
+
+		$sql = "DELETE FROM courses WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $model->getId());
+		$sth->execute();
+		
+		return $sth->rowCount();
+	}
+
+	public function getImage($id){
+		$db = new Database();
+		$db = $db->create();
+		$sql = "SELECT * FROM courses_images WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	public function getVideo($id){
+		$db = new Database();
+		$db = $db->create();
+		$sql = "SELECT * FROM courses_videos WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	public function addImage($id, $image_name){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "INSERT INTO courses_images (name, course) VALUES (:name, :course)";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':name', $image_name);
+		$sth->bindParam(':course', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
+	public function addVideo($id, $video_name){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "INSERT INTO courses_videos (name, course) VALUES (:name, :course)";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':name', $video_name);
+		$sth->bindParam(':course', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
+	public function removeImage($id){
+		$db = new Database();
+		$db = $db->create();
+		$uploads = new Uploads();
+
+		$sql = "SELECT name FROM courses_images WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		$image = $sth->fetch(\PDO::FETCH_ASSOC);
+		$uploads->removeFile($image['name']);
+
+		$sql = "DELETE FROM courses_images WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
+	public function removeVideo($id){
+		$db = new Database();
+		$db = $db->create();
+		$uploads = new Uploads();
+
+		$sql = "SELECT name FROM courses_videos WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		$video = $sth->fetch(\PDO::FETCH_ASSOC);
+		$uploads->removeFile($video['name']);
+
+		$sql = "DELETE FROM courses_videos WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->rowCount();
+	}
+
+	public function getCourseAllImages($id){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT id, name FROM courses_images WHERE course = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
+	public function getCourseAllVideos($id){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT id, name FROM courses_videos WHERE course = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
 	}
 
 }
