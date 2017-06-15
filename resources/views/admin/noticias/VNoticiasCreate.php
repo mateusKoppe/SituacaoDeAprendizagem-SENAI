@@ -19,6 +19,10 @@
 			<input name="name" required id="name" type="text" class="input" placeholder="Nome">
 		</div>
 		<div class="form__section">
+			<label for="summary" class="label">Resumo</label>
+			<textarea name="summary" id="summary" type="text" class="input" placeholder="Resumo"></textarea>
+		</div>
+		<div class="form__section">
 			<label for="description" class="label">Descrição</label>
 			<textarea name="description" id="description" type="text" class="input" placeholder="Descrição"></textarea>
 		</div>

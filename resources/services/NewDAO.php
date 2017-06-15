@@ -11,11 +11,12 @@ class NewDAO{
 		$db = new Database;
 		$db = $db->create();
 
-		$sql = "INSERT INTO news (active, featured, name, description, primary_image) VALUES (:active, :featured, :name, :description, :primary_image)";
+		$sql = "INSERT INTO news (active, featured, name, summary,description, primary_image) VALUES (:active, :featured, :name, :summary, :description, :primary_image)";
 		$sth = $db->prepare($sql);		
 		$sth->bindParam(':active', $new->getActive());
 		$sth->bindParam(':featured', $new->getFeatured());
 		$sth->bindParam(':name', $new->getName());
+		$sth->bindParam(':summary', $new->getSummary());
 		$sth->bindParam(':description', $new->getDescription());
 		$sth->bindParam(':primary_image', $new->getPrimaryImage());
 		$sth->execute();
@@ -26,7 +27,7 @@ class NewDAO{
 		$db = new Database;
 		$db = $db->create();
 
-		$sql = "UPDATE news SET active = :active, featured = :featured, name = :name, description = :description";
+		$sql = "UPDATE news SET active = :active, featured = :featured, name = :name, summary = :summary, description = :description";
 		if($new->getPrimaryImage()){
 			$sql .= ", primary_image = :primary_image";
 			$actualNew = $this->getNewById($new->getId());
@@ -41,6 +42,7 @@ class NewDAO{
 		$sth->bindParam(':active', $new->getActive());
 		$sth->bindParam(':featured', $new->getFeatured());
 		$sth->bindParam(':name', $new->getName());
+		$sth->bindParam(':summary', $new->getSummary());
 		$sth->bindParam(':description', $new->getDescription());
 		if($new->getPrimaryImage()){
 			$sth->bindParam(':primary_image', $new->getPrimaryImage());

@@ -447,16 +447,16 @@ html, body {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .container--no-gutter {
   padding-left: 0;
   padding-right: 0; }
 
 .row {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: -10px;
+  margin-right: -10px;
   display: flex;
   flex-wrap: wrap; }
 
@@ -479,8 +479,8 @@ html, body {
 .col-1 {
   flex-basis: 8.33333%;
   max-width: 8.33333%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-1 {
   order: 1; }
@@ -488,8 +488,8 @@ html, body {
 .col-2 {
   flex-basis: 16.66667%;
   max-width: 16.66667%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-2 {
   order: 2; }
@@ -497,8 +497,8 @@ html, body {
 .col-3 {
   flex-basis: 25%;
   max-width: 25%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-3 {
   order: 3; }
@@ -506,8 +506,8 @@ html, body {
 .col-4 {
   flex-basis: 33.33333%;
   max-width: 33.33333%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-4 {
   order: 4; }
@@ -515,8 +515,8 @@ html, body {
 .col-5 {
   flex-basis: 41.66667%;
   max-width: 41.66667%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-5 {
   order: 5; }
@@ -524,8 +524,8 @@ html, body {
 .col-6 {
   flex-basis: 50%;
   max-width: 50%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-6 {
   order: 6; }
@@ -533,8 +533,8 @@ html, body {
 .col-7 {
   flex-basis: 58.33333%;
   max-width: 58.33333%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-7 {
   order: 7; }
@@ -542,8 +542,8 @@ html, body {
 .col-8 {
   flex-basis: 66.66667%;
   max-width: 66.66667%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-8 {
   order: 8; }
@@ -551,8 +551,8 @@ html, body {
 .col-9 {
   flex-basis: 75%;
   max-width: 75%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-9 {
   order: 9; }
@@ -560,8 +560,8 @@ html, body {
 .col-10 {
   flex-basis: 83.33333%;
   max-width: 83.33333%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-10 {
   order: 10; }
@@ -569,8 +569,8 @@ html, body {
 .col-11 {
   flex-basis: 91.66667%;
   max-width: 91.66667%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-11 {
   order: 11; }
@@ -578,8 +578,8 @@ html, body {
 .col-12 {
   flex-basis: 100%;
   max-width: 100%;
-  padding-left: 15px;
-  padding-right: 15px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .order-12 {
   order: 12; }
@@ -782,8 +782,8 @@ html, body {
   .col-lg-1 {
     flex-basis: 8.33333%;
     max-width: 8.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-1 {
     order: 1; }
@@ -791,8 +791,8 @@ html, body {
   .col-lg-2 {
     flex-basis: 16.66667%;
     max-width: 16.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-2 {
     order: 2; }
@@ -800,8 +800,8 @@ html, body {
   .col-lg-3 {
     flex-basis: 25%;
     max-width: 25%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-3 {
     order: 3; }
@@ -809,8 +809,8 @@ html, body {
   .col-lg-4 {
     flex-basis: 33.33333%;
     max-width: 33.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-4 {
     order: 4; }
@@ -818,8 +818,8 @@ html, body {
   .col-lg-5 {
     flex-basis: 41.66667%;
     max-width: 41.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-5 {
     order: 5; }
@@ -827,8 +827,8 @@ html, body {
   .col-lg-6 {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-6 {
     order: 6; }
@@ -836,8 +836,8 @@ html, body {
   .col-lg-7 {
     flex-basis: 58.33333%;
     max-width: 58.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-7 {
     order: 7; }
@@ -845,8 +845,8 @@ html, body {
   .col-lg-8 {
     flex-basis: 66.66667%;
     max-width: 66.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-8 {
     order: 8; }
@@ -854,8 +854,8 @@ html, body {
   .col-lg-9 {
     flex-basis: 75%;
     max-width: 75%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-9 {
     order: 9; }
@@ -863,8 +863,8 @@ html, body {
   .col-lg-10 {
     flex-basis: 83.33333%;
     max-width: 83.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-10 {
     order: 10; }
@@ -872,8 +872,8 @@ html, body {
   .col-lg-11 {
     flex-basis: 91.66667%;
     max-width: 91.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-11 {
     order: 11; }
@@ -881,8 +881,8 @@ html, body {
   .col-lg-12 {
     flex-basis: 100%;
     max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-lg-12 {
     order: 12; }
@@ -1084,8 +1084,8 @@ html, body {
   .col-md-1 {
     flex-basis: 8.33333%;
     max-width: 8.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-1 {
     order: 1; }
@@ -1093,8 +1093,8 @@ html, body {
   .col-md-2 {
     flex-basis: 16.66667%;
     max-width: 16.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-2 {
     order: 2; }
@@ -1102,8 +1102,8 @@ html, body {
   .col-md-3 {
     flex-basis: 25%;
     max-width: 25%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-3 {
     order: 3; }
@@ -1111,8 +1111,8 @@ html, body {
   .col-md-4 {
     flex-basis: 33.33333%;
     max-width: 33.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-4 {
     order: 4; }
@@ -1120,8 +1120,8 @@ html, body {
   .col-md-5 {
     flex-basis: 41.66667%;
     max-width: 41.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-5 {
     order: 5; }
@@ -1129,8 +1129,8 @@ html, body {
   .col-md-6 {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-6 {
     order: 6; }
@@ -1138,8 +1138,8 @@ html, body {
   .col-md-7 {
     flex-basis: 58.33333%;
     max-width: 58.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-7 {
     order: 7; }
@@ -1147,8 +1147,8 @@ html, body {
   .col-md-8 {
     flex-basis: 66.66667%;
     max-width: 66.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-8 {
     order: 8; }
@@ -1156,8 +1156,8 @@ html, body {
   .col-md-9 {
     flex-basis: 75%;
     max-width: 75%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-9 {
     order: 9; }
@@ -1165,8 +1165,8 @@ html, body {
   .col-md-10 {
     flex-basis: 83.33333%;
     max-width: 83.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-10 {
     order: 10; }
@@ -1174,8 +1174,8 @@ html, body {
   .col-md-11 {
     flex-basis: 91.66667%;
     max-width: 91.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-11 {
     order: 11; }
@@ -1183,8 +1183,8 @@ html, body {
   .col-md-12 {
     flex-basis: 100%;
     max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-md-12 {
     order: 12; }
@@ -1386,8 +1386,8 @@ html, body {
   .col-sm-1 {
     flex-basis: 8.33333%;
     max-width: 8.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-1 {
     order: 1; }
@@ -1395,8 +1395,8 @@ html, body {
   .col-sm-2 {
     flex-basis: 16.66667%;
     max-width: 16.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-2 {
     order: 2; }
@@ -1404,8 +1404,8 @@ html, body {
   .col-sm-3 {
     flex-basis: 25%;
     max-width: 25%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-3 {
     order: 3; }
@@ -1413,8 +1413,8 @@ html, body {
   .col-sm-4 {
     flex-basis: 33.33333%;
     max-width: 33.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-4 {
     order: 4; }
@@ -1422,8 +1422,8 @@ html, body {
   .col-sm-5 {
     flex-basis: 41.66667%;
     max-width: 41.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-5 {
     order: 5; }
@@ -1431,8 +1431,8 @@ html, body {
   .col-sm-6 {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-6 {
     order: 6; }
@@ -1440,8 +1440,8 @@ html, body {
   .col-sm-7 {
     flex-basis: 58.33333%;
     max-width: 58.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-7 {
     order: 7; }
@@ -1449,8 +1449,8 @@ html, body {
   .col-sm-8 {
     flex-basis: 66.66667%;
     max-width: 66.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-8 {
     order: 8; }
@@ -1458,8 +1458,8 @@ html, body {
   .col-sm-9 {
     flex-basis: 75%;
     max-width: 75%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-9 {
     order: 9; }
@@ -1467,8 +1467,8 @@ html, body {
   .col-sm-10 {
     flex-basis: 83.33333%;
     max-width: 83.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-10 {
     order: 10; }
@@ -1476,8 +1476,8 @@ html, body {
   .col-sm-11 {
     flex-basis: 91.66667%;
     max-width: 91.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-11 {
     order: 11; }
@@ -1485,8 +1485,8 @@ html, body {
   .col-sm-12 {
     flex-basis: 100%;
     max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-sm-12 {
     order: 12; }
@@ -1688,8 +1688,8 @@ html, body {
   .col-xs-1 {
     flex-basis: 8.33333%;
     max-width: 8.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-1 {
     order: 1; }
@@ -1697,8 +1697,8 @@ html, body {
   .col-xs-2 {
     flex-basis: 16.66667%;
     max-width: 16.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-2 {
     order: 2; }
@@ -1706,8 +1706,8 @@ html, body {
   .col-xs-3 {
     flex-basis: 25%;
     max-width: 25%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-3 {
     order: 3; }
@@ -1715,8 +1715,8 @@ html, body {
   .col-xs-4 {
     flex-basis: 33.33333%;
     max-width: 33.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-4 {
     order: 4; }
@@ -1724,8 +1724,8 @@ html, body {
   .col-xs-5 {
     flex-basis: 41.66667%;
     max-width: 41.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-5 {
     order: 5; }
@@ -1733,8 +1733,8 @@ html, body {
   .col-xs-6 {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-6 {
     order: 6; }
@@ -1742,8 +1742,8 @@ html, body {
   .col-xs-7 {
     flex-basis: 58.33333%;
     max-width: 58.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-7 {
     order: 7; }
@@ -1751,8 +1751,8 @@ html, body {
   .col-xs-8 {
     flex-basis: 66.66667%;
     max-width: 66.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-8 {
     order: 8; }
@@ -1760,8 +1760,8 @@ html, body {
   .col-xs-9 {
     flex-basis: 75%;
     max-width: 75%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-9 {
     order: 9; }
@@ -1769,8 +1769,8 @@ html, body {
   .col-xs-10 {
     flex-basis: 83.33333%;
     max-width: 83.33333%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-10 {
     order: 10; }
@@ -1778,8 +1778,8 @@ html, body {
   .col-xs-11 {
     flex-basis: 91.66667%;
     max-width: 91.66667%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-11 {
     order: 11; }
@@ -1787,8 +1787,8 @@ html, body {
   .col-xs-12 {
     flex-basis: 100%;
     max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 10px;
+    padding-right: 10px; }
 
   .order-xs-12 {
     order: 12; }
@@ -2270,6 +2270,15 @@ li {
   border-radius: 10px;
   padding: 15px;
   background-color: white; }
+
+.card__image {
+  background-size: cover;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 8px;
+  margin-right: -10px;
+  padding-top: calc(100% * 0.75);
+  background-position: center; }
 
 .form__section {
   margin-bottom: 20px; }

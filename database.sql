@@ -113,6 +113,7 @@ create table news(
 	active boolean default true,
 	featured boolean default false,
 	name varchar(50) not null,
+	summary varchar(150) not null,
 	description text null,
 	accesses int default 0,
 	primary_image varchar(50) null

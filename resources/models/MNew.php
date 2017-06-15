@@ -8,6 +8,7 @@ class MNew{
 	private $active;
 	private $featured;
 	private $name;
+	private $summary;
 	private $description;
 	private $accesses;
 	private $primaryImage;
@@ -17,6 +18,7 @@ class MNew{
 		$this->id = value_or_default($data['id'], null);
 		$this->active = value_or_default($data['active'], '');
 		$this->featured = value_or_default($data['featured'], '');
+		$this->summary = value_or_default($data['summary'], '');
 		$this->description = value_or_default($data['description'], '');
 		$this->accesses = value_or_default($data['accesses'], 0);
 		$this->primaryImage = value_or_default($data['primary_image'], '');
@@ -60,6 +62,14 @@ class MNew{
 
 	public function getDescription(){
 		return $this->description; 
+	}
+
+	public function setSummary($summary){
+		$this->summary = $summary;
+	}
+	
+	public function getSummary(){
+		return $this->summary;
 	}
 
 	public function setAccesses($accesses){

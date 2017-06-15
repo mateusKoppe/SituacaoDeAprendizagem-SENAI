@@ -62,6 +62,7 @@ class CNoticias extends Controller{
 				"active" => $new->getActive(),
 				"featured" => $new->getFeatured(),
 				"name" => $new->getName(),
+				"summary" => $new->getSummary(),
 				"description" => $new->getDescription(),
 				"primary_image" => $new->getPrimaryImage(),
 			];
