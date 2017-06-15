@@ -11,7 +11,7 @@ class CourseDAO{
 		$db = new Database;
 		$db = $db->create();
 
-		$sql = "INSERT INTO courses (active, featured, name, primary_image, period, table_description, area, category, workload, description, objective, accesses, target) VALUES (:active, :featured, :name, :primary_image, :period, :table_description, :area, :category, :workload, :description, :objective, :accesses, :target)";
+		$sql = "INSERT INTO courses (active, featured, name, primary_image, period, table_description, area, category, workload, description, objective, target) VALUES (:active, :featured, :name, :primary_image, :period, :table_description, :area, :category, :workload, :description, :objective, :target)";
 
 		$sth = $db->prepare($sql);		
 		$sth->bindparam(':active',$course->getActive()); 
@@ -25,10 +25,9 @@ class CourseDAO{
 		$sth->bindparam(':workload', $course->getWorkLoad());
 		$sth->bindparam(':description', $course->getDescription());
 		$sth->bindparam(':objective', $course->getObjective());
-		$sth->bindparam(':accesses', $course->getAccesses());
 		$sth->bindparam(':target', $course->getAccesses());
 		$sth->execute();
-		$sth->rowCount();
+		return $sth->rowCount();
 	}
 
 	public function edit($course){
@@ -94,6 +93,65 @@ class CourseDAO{
 		}
 
 		return $courses;
+	}
+
+	public function getCoursesByCategory($id) {
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT * FROM courses WHERE category = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+
+		$courses = [];
+
+		while($row = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$course = new MCourse($row);
+			$courses[] = $course;
+		}
+
+		return $courses;
+	}
+
+	public function getAllCategories(){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT * FROM courses_category";
+		$sth = $db->prepare($sql);
+		$sth->execute();
+		return $sth->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
+	public function saveCategory($category){
+		$db = new Database();
+		$db = $db->create();
+		$name = $category['name'];
+		$description = value_or_default($category['description'], "");
+		$sql = "INSERT INTO courses_category (name) VALUES (:name)";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':name', $name);
+		return $sth->execute();
+	}
+
+	public function deleteCategory($id){
+		$db = new Database();
+		$db = $db->create();
+		$sql = "DELETE FROM courses_category WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		return $sth->execute();
+	}
+
+	public function getCategory($id){
+		$db = new Database();
+		$db = $db->create();
+		$sql = "SELECT * FROM courses_category WHERE id = :id";
+		$sth = $db->prepare($sql);
+		$sth->bindParam(':id', $id);
+		$sth->execute();
+		return $sth->fetch(\PDO::FETCH_ASSOC);
 	}
 
 	public function getCourseById($id) {

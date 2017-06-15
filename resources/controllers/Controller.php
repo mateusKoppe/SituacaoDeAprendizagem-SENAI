@@ -23,9 +23,9 @@ class Controller {
 				$this->render('admin/footer', $data);
 				break;
 			default:
-				$this->render('structure/header');
+				$this->render('structure/header', $data);
 				$this->render($view, $data);
-				$this->render('structure/footer');
+				$this->render('structure/footer', $data);
 				break;
 		}
 	}

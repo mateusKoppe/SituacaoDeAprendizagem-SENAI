@@ -28,9 +28,58 @@ class CCursos extends Controller{
 		], 'admin');
 	}
 
+	public function ACategoria(){
+		$this->whenGet(function(){
+			$service = new CourseDAO();
+			$categories = $service->getAllCategories();
+			$this->renderInStructure('admin/cursos/VCursosCategoria', [
+				'user' => $_SESSION['user'],
+				'categories' => $categories
+			], 'admin');
+		});
+
+		$this->whenPost(function(){
+			$service = new CourseDAO();
+			$categories = $service->saveCategory($_POST);
+			$this->redirect("../cursos/categoria");
+		});
+	}
+
+	public function AExcluircategoria(){
+		$id = $this->getParams(2);
+		$service = new CourseDAO();
+		$categories = $service->deleteCategory($id);
+		$this->redirect("../../cursos/categoria");
+	}
+
+	public function AEditarcategoria(){
+		$this->whenGet(function(){
+			$id = $this->getParams(2);
+			$service = new CourseDAO();
+			$category = $service->getCategory($id);
+			$this->renderInStructure('admin/cursos/VCursosCategoriaEditar', [
+				'user' => $_SESSION['user'],
+				'category' => $category
+			], 'admin');
+		});
+
+		$this->whenPost(function(){
+			$id = $this->getParams(2);
+			$service = new CourseDAO();
+			$_POST['id'] = $id;
+			$category = $service->editCategory($_POST);
+			$this->redirect("../../cursos/categoria");
+		});
+	}
+
 	public function ANovo(){
 		$this->whenGet(function() {
-			$this->renderInStructure('admin/cursos/VCursosCreate', ['user' => $_SESSION['user']], 'admin');
+			$service = new CourseDAO();
+			$categories = $service->getAllCategories();
+			$this->renderInStructure('admin/cursos/VCursosCreate', [
+				'user' => $_SESSION['user'],
+				'categories' => $categories
+			], 'admin');
 		});
 
 		$this->whenPost(function(){

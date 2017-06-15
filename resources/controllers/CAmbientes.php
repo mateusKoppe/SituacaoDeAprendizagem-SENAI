@@ -5,11 +5,21 @@ namespace controllers;
 class CAmbientes extends Controller {
 
 	public function AIndex() {
-		$this->renderInStructure('VAmbiente');
+		$courseDAO = new \services\CourseDAO();
+		$coursesCategories = $courseDAO->getAllCategories();
+
+		$this->renderInStructure("VAmbiente", [
+			'coursesCategories' => 	$coursesCategories
+		]);
 	}
 
 	public function ADetalhes() {
-		$this->renderInStructure('VAmbienteDetails');
+		$courseDAO = new \services\CourseDAO();
+		$coursesCategories = $courseDAO->getAllCategories();
+
+		$this->renderInStructure("VAmbienteDetails", [
+			'coursesCategories' => 	$coursesCategories
+		]);
 	}
 
 }

@@ -1,4 +1,3 @@
-<!-- print_r($data['id']) -->
 <div class="container page-content">	
 	<h1 class="main-title">Técnico em Manutenção Automotiva</h1>
 	<div class="row">

@@ -58,10 +58,11 @@
 						<li class="main-nav-content__item">
 							<a class="main-nav-content__link">Cursos</a>
 							<ul class="main-nav-content__submenu">
-								<li class="main-nav-content__item"><a class="main-nav-content__link">Aprendizagem industrial</a></li>
-								<li class="main-nav-content__item"><a class="main-nav-content__link">Cursos técnicos</a></li>
-								<li class="main-nav-content__item"><a class="main-nav-content__link">Cursos rápidos</a></li>
-								<li class="main-nav-content__item"><a class="main-nav-content__link">Faculdades</a></li>
+								<?php foreach ($data['coursesCategories'] as $key => $category): ?>
+									<li class="main-nav-content__item">
+										<a href="curso/categoria/<?php echo $category['id']?>" class="main-nav-content__link"><?php echo $category['name']?></a>
+									</li>
+								<?php endforeach; ?>
 							</ul>
 						</li>
 						<li class="main-nav-content__item">

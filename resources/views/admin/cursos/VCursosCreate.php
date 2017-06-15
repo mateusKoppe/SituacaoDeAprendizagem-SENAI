@@ -1,7 +1,7 @@
-<h1 class="simple-title">Cadastro de Ambientes</h1>
+<h1 class="simple-title">Cadastro de Cursos</h1>
 <hr>
 <div>
-	<a href="admin/ambientes" class="button button--warning">Voltar</a>
+	<a href="admin/cursos" class="button button--warning">Voltar</a>
 	<hr>
 	<form name="form" class="form mt--15" method="post" enctype="multipart/form-data">
 		<div class="form__section">
@@ -19,20 +19,44 @@
 			<input name="name" required id="name" type="text" class="input" placeholder="Nome">
 		</div>
 		<div class="form__section">
+			<div class="row">
+				<div class="col">
+					<label for="category" class="label">Categoria</label>
+					<select name="category" required id="category" type="text" style="height: 45px" class="input">
+						<?php foreach($data['categories'] as $category): ?>
+						<option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<div class="col">
+					<label for="workload" class="label">Carga horária</label>
+					<input name="workload" min="0" id="workload" type="number" class="input" placeholder="Carga horária">
+				</div>
+			</div>
+		</div>
+		<div class="form__section">
+			<div class="row">
+				<div class="col">
+					<label for="period" class="label">Período</label>
+					<select name="period" required id="period" type="text" style="height: 45px" class="input">
+						<option value="1">Matutino</option>
+						<option value="2">Vespertino</option>
+						<option value="3">Noturno</option>
+					</select>
+				</div>
+				<div class="col">
+					<label for="area" class="label">Área</label>
+					<input name="area" required id="area" type="text" class="input" placeholder="Área">
+				</div>
+			</div>
+		</div>
+		<div class="form__section">
 			<label for="description" class="label">Descrição</label>
 			<textarea name="description" id="description" type="text" class="input" placeholder="Descrição"></textarea>
 		</div>
 		<div class="form__section">
-			<div class="row">
-				<div class="col-6">
-					<label for="capacity" class="label">Capacidade</label>
-					<input name="capacity" min="0" id="capacity" type="number" class="input" placeholder="Capacidade">
-				</div>
-				<div class="col-6">
-					<label for="size" class="label">Metros quadrados</label>
-					<input name="size" id="size" type="number" class="input" placeholder="Metros quadrados">
-				</div>
-			</div>
+			<label for="objective" class="label">Objetivo</label>
+			<textarea name="objective" id="objective" type="text" class="input" placeholder="Objetivo"></textarea>
 		</div>
 		<div class="form__section">
 			<label>

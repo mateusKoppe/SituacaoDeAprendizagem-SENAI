@@ -1,6 +1,7 @@
 <h1 class="simple-title">Cursos</h1>
 <hr>
 <a href="admin/cursos/novo" class="button button--success">Adicionar</a>
+<a href="admin/cursos/categoria" class="button button--primary">Categorias</a>
 <div class="m--15"></div>
 <!-- <div class="row">
 	<div class="col-9">

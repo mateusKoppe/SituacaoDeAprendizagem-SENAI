@@ -5,7 +5,12 @@ namespace controllers;
 class CContato extends Controller {
 
 	public function AIndex(){
-		$this->renderInStructure("VContato");
+		$courseDAO = new \services\CourseDAO();
+		$coursesCategories = $courseDAO->getAllCategories();
+
+		$this->renderInStructure("VContato", [
+			'coursesCategories' => 	$coursesCategories
+		]);
 	}
 
 	

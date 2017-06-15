@@ -1,7 +1,7 @@
-<h1 class="simple-title">Cadastro de Ambientes</h1>
+<h1 class="simple-title">Edição de Noticias</h1>
 <hr>
 <div>
-	<a href="admin/ambientes" class="button button--warning">Voltar</a>
+	<a href="admin/noticias" class="button button--warning">Voltar</a>
 	<hr>
 	<form name="form" class="form mt--15" method="post" enctype="multipart/form-data">
 		<div class="form__section">
@@ -21,18 +21,6 @@
 		<div class="form__section">
 			<label for="description" class="label">Descrição</label>
 			<textarea name="description" id="description" type="text" class="input" placeholder="Descrição"><?php echo $data['values']['description'] ?></textarea>
-		</div>
-		<div class="form__section">
-			<div class="row">
-				<div class="col-6">
-					<label for="capacity" class="label">Capacidade</label>
-					<input value="<?php echo $data['values']['capacity'] ?>" name="capacity" min="0" id="capacity" type="number" class="input" placeholder="Capacidade">
-				</div>
-				<div class="col-6">
-					<label for="size" class="label">Metros quadrados</label>
-					<input value="<?php echo $data['values']['size'] ?>" name="size" id="size" type="number" class="input" placeholder="Metros quadrados">
-				</div>
-			</div>
 		</div>
 		<div class="form__section">
 			<label>
