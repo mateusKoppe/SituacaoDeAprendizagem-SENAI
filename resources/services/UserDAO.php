@@ -20,7 +20,6 @@ class UserDao{
 		$sth->execute();
 
 		return $sth->fetch(\PDO::FETCH_ASSOC);
-
 	}
 
 }

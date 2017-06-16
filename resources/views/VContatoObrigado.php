@@ -4,6 +4,9 @@
 		<small>Entre em contato conosco. Para isso basta prencher o fomulário abaixo.</small>
 	</h1>
 
+	<div class="alert alert--success">Obrigado por entrar em contato! :D</div>
+	<br>
+
 	<div>
 		<form class="form row" action="" method="post">
 			<div class="form__section col-6 col-sm-12">

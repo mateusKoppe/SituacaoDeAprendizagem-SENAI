@@ -56,7 +56,7 @@
 							<a class="main-nav-content__link" href="institucional">Institucional</a>
 						</li>
 						<li class="main-nav-content__item">
-							<a class="main-nav-content__link">Cursos</a>
+							<a class="main-nav-content__link" href="curso">Cursos</a>
 							<ul class="main-nav-content__submenu">
 								<?php foreach ($data['coursesCategories'] as $key => $category): ?>
 									<li class="main-nav-content__item">

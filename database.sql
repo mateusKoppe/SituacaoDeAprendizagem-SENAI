@@ -97,7 +97,8 @@ create table contacts(
 	phone varchar(20) null,
 	age int not null,
 	want_be_studant boolean not null,
-	subject varchar(100)
+	subject varchar(100),
+	message text not null
 );
 
 create table course_envionments(

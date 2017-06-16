@@ -10,17 +10,27 @@ class CCurso extends Controller{
 		$courseDAO = new \services\CourseDAO();
 		$coursesCategories = $courseDAO->getAllCategories();
 
+		$courses = $courseDAO->getAllCategoriesWithCourses();
+
 		$this->renderInStructure("VCursoIndex", [
-			'coursesCategories' => 	$coursesCategories
+			'coursesCategories' => 	$coursesCategories,
+			'categoryCourses' => $courses
 		]);
+
+
 	}
 
-	public function ADetalhes(){
+	public function AVermais(){
 		$courseDAO = new \services\CourseDAO();
 		$coursesCategories = $courseDAO->getAllCategories();
 
+		$id = $this->getParams(1);
+
+		$course = $courseDAO->getCourseById($id);
+
 		$this->renderInStructure("VCursoDetails", [
-			'coursesCategories' => 	$coursesCategories
+			'coursesCategories' => 	$coursesCategories,
+			'course' => $course
 		]);
 	}
 

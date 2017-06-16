@@ -25,7 +25,7 @@ class CourseDAO{
 		$sth->bindparam(':workload', $course->getWorkLoad());
 		$sth->bindparam(':description', $course->getDescription());
 		$sth->bindparam(':objective', $course->getObjective());
-		$sth->bindparam(':target', $course->getAccesses());
+		$sth->bindparam(':target', $course->getTarget());
 		$sth->execute();
 		return $sth->rowCount();
 	}
@@ -69,7 +69,7 @@ class CourseDAO{
 		$sth->bindparam(':description', $course->getDescription());
 		$sth->bindparam(':objective', $course->getObjective());
 		$sth->bindparam(':accesses', $course->getAccesses());
-		$sth->bindparam(':target', $course->getAccesses());
+		$sth->bindparam(':target', $course->getTarget());
 		if($course->getPrimaryImage()){
 			$sth->bindParam(':primary_image', $course->getPrimaryImage());
 		}
@@ -214,6 +214,41 @@ class CourseDAO{
 		$sth->execute();
 		
 		return $sth->rowCount();
+	}
+
+	public function getAllCategoriesWithCourses(){
+		$db = new Database();
+		$db = $db->create();
+		$sql = "
+			SELECT 
+				courses.*,
+				category.id as category,
+				category.name as category_name
+			FROM courses 
+				INNER JOIN  courses_category AS category 
+					ON courses.category = category.id
+			ORDER BY
+				category.id asc,
+				rand()
+		";
+		$sth = $db->prepare($sql);
+		$sth->execute();
+		$categories = [];
+
+		$actual_category = '';
+		while($course = $sth->fetch(\PDO::FETCH_ASSOC)){
+			if($actual_category != $course['category_name']){
+				$categories[] = [
+					'id' => $course['category'],
+					'name' => $course['category_name'],
+					'courses' => []
+				];
+				$actual_category = $course['category_name'];
+			}
+			$category_index = count($categories) - 1;
+			$categories[$category_index]['courses'][] = new MCourse($course);
+		}
+		return $categories;
 	}
 
 	public function getImage($id){

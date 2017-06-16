@@ -59,6 +59,10 @@
 			<textarea name="objective" id="objective" type="text" class="input" placeholder="Objetivo"></textarea>
 		</div>
 		<div class="form__section">
+			<label for="target" class="label">Público alvo</label>
+			<textarea name="target" id="target" type="text" class="input" placeholder="Público alvo"></textarea>
+		</div>
+		<div class="form__section">
 			<label>
 				<a tabindex="0" role="button" class="button button--primary">Imagem principal</a>
 				<input name="primary_image" id="primary_image" type="file" accept="image/*" class="hide">
