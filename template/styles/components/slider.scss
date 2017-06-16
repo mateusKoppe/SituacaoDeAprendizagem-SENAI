@@ -18,6 +18,13 @@
 		}
 	}
 
+	.banner-slider__slide--like-image{
+		height: 100%; 
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+	}
+
 	.banner-slider__slide--active{
 		opacity: 1;
 	}
