@@ -65,9 +65,9 @@
 								<?php endforeach; ?>
 							</ul>
 						</li>
-						<li class="main-nav-content__item">
+						<!-- <li class="main-nav-content__item">
 							<a class="main-nav-content__link">Ensino Médio</a>
-						</li>
+						</li> -->
 						<li class="main-nav-content__item">
 							<a class="main-nav-content__link" href="noticias">Noticías</a>
 						</li>

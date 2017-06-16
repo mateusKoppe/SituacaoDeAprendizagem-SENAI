@@ -95,6 +95,24 @@ class CourseDAO{
 		return $courses;
 	}
 
+	public function getFeaturedCourses(){
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT * FROM courses WHERE featured = 1";
+
+		$sth = $db->query($sql);
+
+		$courses = [];
+
+		while($row = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$course = new MCourse($row);
+			$courses[] = $course;
+		}
+
+		return $courses;	
+	}
+
 	public function getCoursesByCategory($id) {
 		$db = new Database();
 		$db = $db->create();

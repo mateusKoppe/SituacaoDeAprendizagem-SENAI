@@ -72,6 +72,24 @@ class EnvironmentDAO{
 		return $environments;
 	}
 
+	public function getFeaturedEnvironments() {
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT * FROM environments WHERE featured = 1";
+
+		$sth = $db->query($sql);
+
+		$environments = [];
+
+		while($row = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$environment = new MEnvironment($row);
+			$environments[] = $environment;
+		}
+
+		return $environments;
+	}
+
 	public function getEnvironmentById($id) {
 		$db = new Database();
 		$db = $db->create();

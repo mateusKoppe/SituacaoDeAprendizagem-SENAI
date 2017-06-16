@@ -70,6 +70,25 @@ class NewDAO{
 		return $news;
 	}
 
+	public function getFeaturedNews() {
+		$db = new Database();
+		$db = $db->create();
+
+		$sql = "SELECT * FROM news";
+
+		$sth = $db->prepare($sql);
+		$sth->execute();
+
+		$news = [];
+
+		while($row = $sth->fetch(\PDO::FETCH_ASSOC)){
+			$new = new MNew($row);
+			$news[] = $new;
+		}
+
+		return $news;
+	}
+
 	public function getNewById($id) {
 		$db = new Database();
 		$db = $db->create();
